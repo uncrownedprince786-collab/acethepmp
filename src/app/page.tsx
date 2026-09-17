@@ -37,7 +37,7 @@ const features = [
   {
     icon: Timer,
     title: "Realistic exam simulator",
-    body: "Exact 2026 structure: 180 questions, 230 minutes, and 10-minute breaks — so the real exam feels familiar, not foreign.",
+    body: "Exact 2026 structure: 180 questions, 240 minutes, and 10-minute breaks — so the real exam feels familiar, not foreign.",
   },
   {
     icon: BarChart3,
@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     q: "Is the content aligned to the 2026 exam?",
-    a: "Yes. Questions and curriculum are mapped to the 2026 PMI Examination Content Outline — the People (42%), Process (50%), and Business Environment (8%) domains and their tasks.",
+    a: "Yes. Questions and curriculum are mapped to the 2026 PMI Examination Content Outline — the People (33%), Process (41%), and Business Environment (26%) domains and their tasks.",
   },
   {
     q: "I need an account to study?",
@@ -152,9 +152,9 @@ export default function HomePage() {
 
           <div className="grid gap-3 sm:grid-cols-2">
             {[
-              { icon: GraduationCap, big: "People", sub: "42% · leadership & team", color: "#0F766E" },
-              { icon: Target, big: "Process", sub: "50% · planning & execution", color: "#1E3A8A" },
-              { icon: BarChart3, big: "Business Env.", sub: "8% · value & compliance", color: "#B45309" },
+              { icon: GraduationCap, big: "People", sub: "33% · leadership & team", color: "#0F766E" },
+              { icon: Target, big: "Process", sub: "41% · planning & execution", color: "#1E3A8A" },
+              { icon: BarChart3, big: "Business Env.", sub: "26% · governance & value", color: "#B45309" },
               { icon: CheckCircle2, big: "3 + 1 smart modes", sub: "practice · simulator · flashcards", color: "#0F766E" },
             ].map((c) => (
               <div
@@ -218,7 +218,7 @@ export default function HomePage() {
               </p>
             </div>
             <Button asChild variant="outline">
-              <Link href="/curriculum">Explore all 30 tasks</Link>
+              <Link href="/curriculum">Explore all 26 tasks</Link>
             </Button>
           </div>
 
@@ -274,7 +274,7 @@ export default function HomePage() {
               The simulator that removes exam-day surprises
             </h2>
             <p className="mt-3 text-muted-foreground">
-              180 questions · 230 minutes · two 10-minute breaks — with domain
+              180 questions · 240 minutes · two 10-minute breaks — with domain
               proportions that mirror the real paper. Practice under real conditions,
               then review every answer with a human-reviewed explanation.
             </p>

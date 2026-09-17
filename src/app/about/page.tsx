@@ -63,7 +63,7 @@ export default function AboutPage() {
             },
             {
               title: "2. Mapping to the ECO",
-              body: "Each question is tagged to one of the 3 domains and one of the 30 tasks, so it is always possible to see where it fits the outline.",
+              body: "Each question is tagged to one of the 3 domains and one of the 26 tasks, so it is always possible to see where it fits the outline.",
             },
             {
               title: "3. Answer + four reasons",

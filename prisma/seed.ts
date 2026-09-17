@@ -5,8 +5,9 @@
 
 import { PrismaClient, type Domain, type EnvType, type Difficulty } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { ECO_TAGS } from "./eco-tags";
 
-const prisma = new PrismaClient();
+export const prisma = new PrismaClient();
 
 type Key = "A" | "B" | "C" | "D";
 
@@ -24,7 +25,10 @@ type SeedQuestion = {
   explanation: string;
 };
 
-const questions: SeedQuestion[] = [
+// Question content. The inline `domain`/`task` values below are legacy
+// placeholders — the authoritative 2026 ECO tags are applied from ECO_TAGS
+// (prisma/eco-tags.ts) at insert time and in the retag migration.
+export const questions: SeedQuestion[] = [
   // ---------------------------------------------------------------- PEOPLE
   {
     domain: "PEOPLE",
@@ -488,12 +492,20 @@ const questions: SeedQuestion[] = [
   },
 ];
 
-async function main() {
+export async function main() {
   console.log("Seeding database...");
 
+  if (ECO_TAGS.length !== questions.length) {
+    throw new Error(
+      `ECO_TAGS has ${ECO_TAGS.length} entries but questions has ${questions.length}. They must stay index-aligned.`
+    );
+  }
+
   const { count } = await prisma.question.createMany({
-    data: questions.map((q) => ({
+    data: questions.map((q, i) => ({
       ...q,
+      domain: ECO_TAGS[i].domain,
+      task: ECO_TAGS[i].task,
       status: "PUBLISHED",
     })),
   });
@@ -516,12 +528,3 @@ async function main() {
 
   console.log("Seed complete.");
 }
-
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });

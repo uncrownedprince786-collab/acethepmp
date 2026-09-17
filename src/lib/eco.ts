@@ -1,6 +1,7 @@
 // 2026 PMP Examination Content Outline — factual domain & task structure.
-// Task numbering follows the PMI Examination Content Outline. Used for
-// mapping every question to a domain + task, curriculum, and SEO pages.
+// Effective July 9, 2026. Task numbering follows the PMI Examination Content
+// Outline. Used for mapping every question to a domain + task, curriculum, and
+// SEO pages. Use the source of truth for tagging: prisma/eco-tags.ts.
 
 import type { Domain, EnvType } from "@prisma/client";
 
@@ -19,65 +20,61 @@ export const DOMAIN_META: Record<
   PEOPLE: {
     label: "People",
     short: "People",
-    weight: 0.42,
+    weight: 0.33,
     color: "#0F766E",
     blurb:
-      "Leading a team, managing conflict, coaching and mentoring, and supporting team performance — the human side of project leadership.",
+      "Leading a team, managing conflict, engaging and aligning stakeholders, and ensuring knowledge transfer — the human side of project leadership.",
   },
   PROCESS: {
     label: "Process",
     short: "Process",
-    weight: 0.5,
+    weight: 0.41,
     color: "#1E3A8A",
     blurb:
-      "Planning, executing and closing work: schedule, budget, risk, scope, quality, communications, procurement, and governance.",
+      "Planning, executing and closing work: integrated planning, scope, value, resources, finance, schedule, quality, and procurement.",
   },
   BUSINESS_ENV: {
     label: "Business Environment",
     short: "Business Env.",
-    weight: 0.08,
+    weight: 0.26,
     color: "#B45309",
     blurb:
-      "Linking the project to the organization: compliance, benefits realization, external business changes, and organizational change.",
+      "Linking the project to the organization: governance, compliance, risk, change control, impediments and issues, continuous improvement, and external business changes.",
   },
 };
 
 export const TASKS: Record<Domain, { id: number; title: string; blurb: string }[]> = {
   PEOPLE: [
-    { id: 1, title: "Manage conflict", blurb: "Resolve disagreement and friction in a way that protects relationships and project outcomes." },
-    { id: 2, title: "Lead a team", blurb: "Set direction, energize the team, and hold everyone accountable without micromanaging." },
-    { id: 3, title: "Support team performance", blurb: "Create conditions in which the team can focus and deliver at its best." },
-    { id: 4, title: "Empower team members and stakeholders", blurb: "Delegate authority and decision rights so people can act." },
-    { id: 5, title: "Ensure team members and stakeholders are adequately trained", blurb: "Close skill gaps with the right training at the right time." },
-    { id: 6, title: "Build a team", blurb: "Form a group of people into a high-performing, trusting team." },
-    { id: 7, title: "Engage and support virtual teams", blurb: "Keep distributed teams connected, informed, and productive." },
-    { id: 8, title: "Define team ground rules", blurb: "Establish norms for behavior, communication, and decision making." },
-    { id: 9, title: "Mentor relevant stakeholders", blurb: "Develop the capability of sponsors, team members, and colleagues." },
-    { id: 10, title: "Promote team performance through emotional intelligence", blurb: "Use self-awareness and empathy to improve collaboration and decisions." },
+    { id: 1, title: "Develop a common vision", blurb: "Agree on one shared picture of success and keep it current and visible to everyone." },
+    { id: 2, title: "Manage conflicts", blurb: "Address disagreement openly, find its real source, and protect working relationships." },
+    { id: 3, title: "Lead the project team", blurb: "Set expectations, empower the team, clear obstacles, and match your leadership style to the team." },
+    { id: 4, title: "Engage stakeholders", blurb: "Identify, analyze, and build trust with everyone who affects or is affected by the project." },
+    { id: 5, title: "Align stakeholder expectations", blurb: "Surface differing expectations early and bring people to a shared understanding." },
+    { id: 6, title: "Manage stakeholder expectations", blurb: "Keep checking what internal and external customers expect and respond as the project evolves." },
+    { id: 7, title: "Help ensure knowledge transfer", blurb: "Capture knowledge critical to the project and create an environment where it is shared." },
+    { id: 8, title: "Plan and manage communication", blurb: "Decide who needs what information, when, and how, and run a clear feedback loop." },
   ],
   PROCESS: [
-    { id: 1, title: "Execute project with the urgency required to deliver business value", blurb: "Keep momentum and focus delivery on value, not just activity." },
-    { id: 2, title: "Manage communications", blurb: "Ensure the right information reaches the right people at the right time." },
-    { id: 3, title: "Assess and manage risks", blurb: "Identify, analyze, and respond to uncertainty that could affect the project." },
-    { id: 4, title: "Engage stakeholders", blurb: "Understand stakeholder expectations and influence to gain support." },
-    { id: 5, title: "Plan and manage budget and resources", blurb: "Estimate, allocate, and monitor money and people." },
-    { id: 6, title: "Plan and manage schedule", blurb: "Sequence work, estimate durations, and track progress over time." },
-    { id: 7, title: "Plan and manage quality of products and deliverables", blurb: "Prevent defects and verify deliverables meet agreed standards." },
-    { id: 8, title: "Plan and manage scope", blurb: "Define what is in and out, and manage change to the baseline." },
-    { id: 9, title: "Integrate project planning activities", blurb: "Pull plans together into one coherent, achievable whole." },
-    { id: 10, title: "Plan and manage procurement", blurb: "Acquire goods and services from outside the organization." },
-    { id: 11, title: "Manage project artifacts", blurb: "Create, update, and control documents and deliverables needed for the project." },
-    { id: 12, title: "Determine appropriate project methodology, methods, and practices", blurb: "Choose how the project will be run: predictive, agile, hybrid, or tailored." },
-    { id: 13, title: "Establish project governance structure", blurb: "Define roles, decision rights, and escalation paths." },
-    { id: 14, title: "Manage project issues", blurb: "Identify and resolve problems that arise during execution." },
-    { id: 15, title: "Ensure knowledge transfer for project continuity", blurb: "Keep critical knowledge from walking out the door." },
-    { id: 16, title: "Plan and manage project/phase closure or transitions", blurb: "Close cleanly, hand over deliverables, and capture lessons." },
+    { id: 1, title: "Develop an integrated project management plan and plan delivery", blurb: "Assess the work, choose the delivery approach, and pull scope, schedule, cost, quality, and risk into one plan." },
+    { id: 2, title: "Develop and manage project scope", blurb: "Define what is in and out, get agreement, and break the work down." },
+    { id: 3, title: "Help ensure value-based delivery", blurb: "Agree what value means, prioritize by it, and deliver it incrementally." },
+    { id: 4, title: "Plan and manage resources", blurb: "Define the people, skills, and materials needed and keep supply matched to demand." },
+    { id: 5, title: "Plan and manage procurement", blurb: "Acquire goods and services from outside the organization and manage the contracts." },
+    { id: 6, title: "Plan and manage finance", blurb: "Analyze funding needs, plan contingencies, and track spend and financial reporting." },
+    { id: 7, title: "Plan and optimize quality of products/deliverables", blurb: "Prevent defects and verify deliverables meet agreed standards." },
+    { id: 8, title: "Plan and manage schedule", blurb: "Sequence work, estimate durations, and track progress against the plan." },
+    { id: 9, title: "Evaluate project status", blurb: "Measure performance and consolidate progress so decisions are based on facts." },
+    { id: 10, title: "Manage project closure", blurb: "Confirm acceptance, close contracts and finances, release resources, and capture lessons." },
   ],
   BUSINESS_ENV: [
-    { id: 1, title: "Plan and manage project compliance", blurb: "Meet legal, regulatory, and organizational requirements." },
-    { id: 2, title: "Evaluate and deliver project benefits and value", blurb: "Connect project outputs to realized business value." },
-    { id: 3, title: "Evaluate and address external business environment changes for impact on scope", blurb: "React to market, regulatory, or competitive shifts." },
-    { id: 4, title: "Support organizational change", blurb: "Help the organization adopt what the project delivers." },
+    { id: 1, title: "Define and establish project governance", blurb: "Establish structure, rules, decision rights, escalation paths, and success metrics." },
+    { id: 2, title: "Plan and manage project compliance", blurb: "Meet legal, regulatory, and organizational requirements, including sustainability." },
+    { id: 3, title: "Manage and control changes", blurb: "Run the change control process and keep documentation aligned with approved changes." },
+    { id: 4, title: "Remove impediments and manage issues", blurb: "Clear blockers for the team and resolve problems that arise during delivery." },
+    { id: 5, title: "Plan and manage risk", blurb: "Identify, analyze, and respond to uncertainty that could affect the project." },
+    { id: 6, title: "Continuous improvement", blurb: "Use lessons learned and update organizational process assets." },
+    { id: 7, title: "Support organizational change", blurb: "Assess culture and help the organization adopt what the project delivers." },
+    { id: 8, title: "Evaluate external business environment changes", blurb: "Watch the external environment and assess the impact on scope and value." },
   ],
 };
 
@@ -97,13 +94,15 @@ export const ENV_META: Record<EnvType, { label: string; blurb: string }> = {
 };
 
 export const EXAM_CONFIG = {
-  totalQuestions: 180,
-  durationMinutes: 230,
-  // Two optional 10-minute breaks after questions 60 and 120. Time to take a
-  // break is NOT counted against the 230 minutes.
+  totalQuestions: 180, // 170 scored + 10 unscored pretest items
+  durationMinutes: 240,
+  // Two optional 10-minute breaks. On the 2026 exam the first break follows the
+  // case-study section and the second falls around the midpoint of the remaining
+  // questions. Time taken for a break is NOT counted against the 240 minutes.
   breakAfterQuestions: [60, 120],
   breakMinutes: 10,
-  passThresholdPercent: 59,
+  // PMI does not publish a passing score. This app does not assert a fixed pass
+  // threshold; the readiness score is an informational estimate only.
 } as const;
 
 export function domainWeightPercent(d: Domain): number {

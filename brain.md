@@ -58,10 +58,10 @@ dashboard) passes on production — see §5–§6.
 | `/` | Landing: hero, features, DOMAIN/ECO grid, FAQ + WebSite/FAQ JSON-LD, footer disclaimer |
 | `/diagnostic` | 10-question balanced diagnostic across the three domains; stores result + readiness |
 | `/practice` | Adaptive practice — weakest ECO domain first, difficulty bands, no answer-key leak |
-| `/simulator` | 180 Q / 230 min, domain-interleaved bank, palette + flagging, breaks after Q60/Q120 |
+| `/simulator` | 180 Q / 240 min, domain-interleaved bank, palette + flagging, breaks after Q60/Q120 |
 | `/flashcards` | SM-2 spaced repetition from practice misses; "again/hard/good/easy" ratings |
 | `/dashboard` | Readiness gauge, per-domain bars, streak, attempt history (login required, noindex) |
-| `/curriculum` | 2026 ECO tasks: People 42% / Process 50% / Business Environment 8% (+ Course JSON-LD) |
+| `/curriculum` | 2026 ECO tasks: People 33% / Process 41% / Business Environment 26% (+ Course JSON-LD) |
 | `/about`, `/login`, `/register` | Disclosure, auth flows (password fields have show/hide eye toggle via `src/components/auth/password-input.tsx`) |
 | `robots.txt`, `sitemap.xml` | Generated from `src/lib/seo.ts` `SITE` |
 
@@ -126,6 +126,17 @@ auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
 
 ## 7. Known gaps / next steps
 
+0. **2026 ECO task taxonomy migration:** ✅ done. `src/lib/eco.ts` now carries the
+   authoritative July 2026 ECO — People 33% / Process 41% / Business Environment
+   26%, 240 minutes, and the consolidated 26 tasks (People 8 / Process 10 / BE 8),
+   with no asserted pass threshold; `src/lib/adaptive.ts` derives its sampling
+   cutoff from the weights. Question tags are driven by `prisma/eco-tags.ts`
+   (single source of truth, index-aligned with `prisma/seed.ts`), applied at seed
+   time and migrated onto existing rows with `npm run db:retag` (non-destructive,
+   idempotent, matched by `stem`). Bank distribution after retag: **People 13 /
+   Process 10 / BE 9** (32 total). The seed entrypoint moved to
+   `prisma/seed-run.ts`; `prisma/seed.ts` is now side-effect free so the retag can
+   import its data.
 1. **Question bank scale:** 32 questions is a demo volume. Target 200+
    original, human-reviewed items before leaning on the simulator as a
    marketing claim. Expand per-domain: People ≥ 50%, Process ≥ 50%, BE ≥ 20.

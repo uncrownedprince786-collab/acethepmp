@@ -85,10 +85,10 @@ Other scripts: `npm run db:studio`, `npm run db:reset` (force-reset + reseed),
 | `/` | Landing page (FAQ + course JSON-LD) |
 | `/diagnostic` | 10-question balanced diagnostic |
 | `/practice` | Adaptive practice (weakest domain first) |
-| `/simulator` | 180-question, 230-minute exam simulator with break interstitials |
+| `/simulator` | 180-question, 240-minute exam simulator with break interstitials |
 | `/flashcards` | Spaced-repetition flashcard review (SM-2) |
 | `/dashboard` | Readiness score, discipline breakdown, history (login required) |
-| `/curriculum` | 2026 ECO: People 42% / Process 50% / Business Environment 8% |
+| `/curriculum` | 2026 ECO: People 33% / Process 41% / Business Environment 26% |
 | `/about` | Description + no-guarantee disclosure |
 | `/login` `/register` | Optional accounts |
 | `robots.txt` `sitemap.xml` | SEO |

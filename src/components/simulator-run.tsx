@@ -205,7 +205,7 @@ export function SimulatorRun() {
               </p>
             </div>
             <div className="rounded-xl border border-border bg-muted/40 p-4">
-              <p className="text-sm font-semibold">230 minutes</p>
+              <p className="text-sm font-semibold">240 minutes</p>
               <p className="text-xs text-muted-foreground">timer stops during breaks</p>
             </div>
             <div className="rounded-xl border border-border bg-muted/40 p-4">

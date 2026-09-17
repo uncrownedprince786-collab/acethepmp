@@ -67,9 +67,11 @@ export async function pickQuestion(
     if (targetDomain !== "PROCESS" && Math.random() < 0.2) targetDomain = "PROCESS";
   } else {
     // No history: sample proportionally to ECO weight.
-    const roll = Math.random() * 1;
+    const peopleCutoff = DOMAIN_META.PEOPLE.weight;
+    const processCutoff = peopleCutoff + DOMAIN_META.PROCESS.weight;
+    const roll = Math.random();
     targetDomain =
-      roll < DOMAIN_META.PEOPLE.weight ? "PEOPLE" : roll < 0.92 ? "PROCESS" : "BUSINESS_ENV";
+      roll < peopleCutoff ? "PEOPLE" : roll < processCutoff ? "PROCESS" : "BUSINESS_ENV";
   }
 
   // --- Difficulty from accuracy on the target domain -----------------------

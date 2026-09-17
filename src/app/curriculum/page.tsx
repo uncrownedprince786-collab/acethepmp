@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "2026 PMP Exam Content Outline Roadmap",
   description:
-    "The complete free PMP study roadmap aligned to the 2026 Examination Content Outline: all 3 domains and all 30 tasks of People, Process, and Business Environment, each with original practice questions.",
+    "The complete free PMP study roadmap aligned to the 2026 Examination Content Outline: all 3 domains and all 26 tasks of People, Process, and Business Environment, each with original practice questions.",
   path: "/curriculum",
   keywords: ["PMP ECO 2026", "PMP domains tasks", "PMP study roadmap", "PMP syllabus free"],
 });

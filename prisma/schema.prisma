@@ -72,8 +72,9 @@ model Session {
 
 model Question {
   id          String         @id @default(cuid())
-  // 2026 ECO domain + task number (task numbers from PMI ECO People 1-10,
-  // Process 1-16, Business Environment 1-4).
+  // 2026 ECO domain + task number. Authoritative tags live in
+  // prisma/eco-tags.ts (task numbers from the July 2026 ECO: People 1-8,
+  // Process 1-10, Business Environment 1-8; 26 tasks total).
   domain      Domain
   task        Int
   envType     EnvType

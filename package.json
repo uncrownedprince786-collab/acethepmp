@@ -10,11 +10,12 @@
     "postinstall": "prisma generate",
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
+    "db:retag": "tsx prisma/retag-eco.ts",
     "db:studio": "prisma studio",
     "db:reset": "prisma db push --force-reset && prisma db seed"
   },
   "prisma": {
-    "seed": "tsx prisma/seed.ts"
+    "seed": "tsx prisma/seed-run.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.0",

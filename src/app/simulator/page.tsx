@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Free PMP Exam Simulator — 180 Questions, Realistic Timing",
   description:
-    "Take a full-length free PMP exam simulation: 180 questions across People, Process, and Business Environment with 230 minutes and two 10-minute breaks, then review every answer.",
+    "Take a full-length free PMP exam simulation: 180 questions across People, Process, and Business Environment with 240 minutes and two 10-minute breaks, then review every answer.",
   path: "/simulator",
   keywords: ["PMP mock exam", "PMP exam simulator", "180 question PMP test"],
 });
