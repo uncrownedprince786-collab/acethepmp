@@ -92,17 +92,19 @@ auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
 - **DB:** Neon serverless Postgres. `.env.example` documents the required
   vars; schema `provider = "postgresql"`, `directUrl = env("DIRECT_URL")`
   (pooled vs direct connection strings).
-- **Vercel project `acethepmp`:** production URL
+- **Vercel project `acethepmp`:** production **LIVE** —
   https://acethepmp-uncrownedprince786-6663s-projects.vercel.app
   - Env vars set for Production: `NEXT_PUBLIC_SITE_URL`, `NEXTAUTH_URL`,
     `NEXTAUTH_SECRET` (generated).
-  - **Blocked on:** `DATABASE_URL` + `DIRECT_URL` (Neon connection strings —
-    owner must add them in the Vercel dashboard), and **Deployment
-    Protection must be turned OFF** in Project → Settings → Deployment
-    Protection (currently shows a "Log in to Vercel" gate to visitors).
-  - Production deploys: `master` pushes deploy as **Preview** only (default
-    production branch is `main`). Either set Production Branch = `master`
-    in Vercel settings or rename the repo default branch to `main`.
+  - Framework Preset = **Next.js** (was "Other" → plain static 404s), Deploy
+    Protection = off.
+  - All pages verified HTTP 200 (landing, curriculum, about, diagnostic,
+    practice, simulator, flashcards, robots.txt, sitemap.xml).
+  - **Remaining:** `DATABASE_URL` + `DIRECT_URL` (Neon connection strings) are
+    NOT set in Vercel yet → `/api/session` and all DB-backed features return
+    500 until added, followed by `npm run db:push` + `npm run db:seed`.
+  - Production deploys: with Framework fixed, pushes to the production branch
+    deploy correctly.
   - Reason for an earlier Production error: Next.js 15.5.4 was flagged
     "Vulnerable version detected"; fixed by upgrading to Next **15.5.25**.
 - **After DAUABASE_URL/DIRECT_URL are set:** redeploy, then run locally
