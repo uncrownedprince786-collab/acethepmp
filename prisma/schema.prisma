@@ -1,0 +1,154 @@
+// Ace the PMP - Data model
+// Datasource: PostgreSQL (Neon serverless). For local development point
+// DATABASE_URL at a local Postgres or the Neon dev branch.
+//
+// Neon recommended setup:
+//   DATABASE_URL  = pooled connection string (add ?sslmode=require)
+//   DIRECT_URL    = unpooled connection string (migrations / prisma db push)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Domain {
+  PEOPLE
+  PROCESS
+  BUSINESS_ENV
+}
+
+enum EnvType {
+  PREDICTIVE
+  AGILE
+  HYBRID
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum QuestionStatus {
+  DRAFT
+  REVIEWED
+  PUBLISHED
+  ARCHIVED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  isAdmin      Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  sessions Session[]
+
+  @@index([email])
+}
+
+// A guest session (cookie) allows progress saving without an account.
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lastSeen  DateTime @default(now())
+
+  user        User?                @relation(fields: [userId], references: [id])
+  attempts    Attempt[]
+  progress    Progress[]
+  diagnostics DiagnosticResult[]
+}
+
+model Question {
+  id          String         @id @default(cuid())
+  // 2026 ECO domain + task number (task numbers from PMI ECO People 1-10,
+  // Process 1-16, Business Environment 1-4).
+  domain      Domain
+  task        Int
+  envType     EnvType
+  difficulty  Difficulty
+  stem        String
+  optionA     String
+  optionB     String
+  optionC     String
+  optionD     String
+  correctKey  String // "A" | "B" | "C" | "D"
+  explanation String // why correct + why others are wrong
+  status      QuestionStatus @default(PUBLISHED)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  attempts  Attempt[]
+  progress  Progress[]
+
+  @@index([domain, difficulty])
+  @@index([task])
+  @@index([status])
+}
+
+model Attempt {
+  id          String   @id @default(cuid())
+  sessionId   String
+  questionId  String
+  selectedKey String
+  isCorrect   Boolean
+  timeSeconds Int?
+  createdAt   DateTime @default(now())
+
+  session  Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([questionId])
+  @@index([createdAt])
+}
+
+// Per-user/per-question mastery + flashcard state.
+model Progress {
+  id         String   @id @default(cuid())
+  sessionId  String
+  questionId String
+  timesSeen  Int      @default(0)
+  timesRight Int      @default(0)
+  timesWrong Int      @default(0)
+  streak     Int      @default(0) // consecutive correct via SM-2 flavor
+  interval   Int      @default(0) // days until next review (spaced repetition)
+  dueAt      DateTime @default(now())
+  // Flashcard self-rating 1..5 (again/hard/good/easy), null until first review.
+  cardRating Int?
+  lastResult Boolean?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  session  Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([sessionId, questionId])
+}
+
+model DiagnosticResult {
+  id           String   @id @default(cuid())
+  sessionId    String
+  mode         String   @default("diagnostic") // "diagnostic" | "simulator"
+  // Sub-scores keyed by Domain, e.g. { "PEOPLE": 72, "PROCESS": 80, "BUSINESS_ENV": 50 }
+  domainScores Json
+  totalCorrect Int
+  total        Int
+  readiness    Int // 0-100 provisional readiness estimate
+  createdAt    DateTime @default(now())
+
+  session Session @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+}

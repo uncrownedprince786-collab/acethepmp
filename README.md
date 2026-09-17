@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ace the PMP
 
-## Getting Started
+A completely free, adaptive PMP preparation platform — original practice
+questions, a realistic 180-question exam simulator, spaced-repetition
+flashcards, a 2026 PMI ECO-aligned curriculum, and a provisional readiness
+score. No accounts required to study (guest sessions save progress in a
+cookie), no paywall, no pass guarantees sold.
 
-First, run the development server:
+> **Disclaimer:** This is a study aid only. It is **not affiliated with or
+> endorsed by PMI**. Our readiness score is a study estimate — it is **not a
+> predictor of exam success**, and no one can guarantee you will pass.
+
+## Stack
+
+- Next.js 15 (App Router, TypeScript, Tailwind CSS v4)
+- Prisma 6 + PostgreSQL on Neon (SQLite was used during early prototyping)
+- NextAuth v5 (Credentials + JWT), bcryptjs, zod
+- lucide-react + shadcn-style UI components (cva, radix-slot)
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install          # also runs `prisma generate` (postinstall)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set up your environment file:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.example .env
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then paste your Neon connection strings into `.env`:
 
-## Learn More
+| Var | Value |
+|-----|-------|
+| `DATABASE_URL` | Neon **Pooled** connection string (`?sslmode=require`) |
+| `DIRECT_URL`   | Neon **Direct** connection string (used by `db push`) |
+| `NEXTAUTH_SECRET` | `openssl rand -base64 32` |
+| `NEXTAUTH_URL` | `http://localhost:3000` locally, your domain in prod |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL for sitemap/metadata |
 
-To learn more about Next.js, take a look at the following resources:
+Create the schema and load the seed content (32 original questions + a demo
+account):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run db:push    # applies schema to the database
+npm run db:seed    # 32 questions + demo@acethepmp.com / password123
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Run the app:
 
-## Deploy on Vercel
+```bash
+npm run dev        # http://localhost:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Other scripts: `npm run db:studio`, `npm run db:reset` (force-reset + reseed),
+`npm run build`, `npm run lint`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploying (Vercel + Neon)
+
+1. Push this repo to GitHub (see `brain.md` for the remote).
+2. In the **Neon** dashboard create a project (free tier is fine). Copy the
+   **Pooled** and **Direct** connection strings.
+3. In **Vercel**, import the repo. Add these Environment Variables (Production,
+   Preview, Development):
+   - `DATABASE_URL` (pooled)
+   - `DIRECT_URL` (direct)
+   - `NEXTAUTH_SECRET` (long random string)
+   - `NEXTAUTH_URL` (e.g. `https://acethepmp.vercel.app`)
+   - `NEXT_PUBLIC_SITE_URL` (same as `NEXTAUTH_URL`)
+4. Build once, then apply schema + seed from your machine against Neon:
+   ```bash
+   npm run db:push
+   npm run db:seed
+   ```
+   (`db:push` uses `DIRECT_URL`; the app talks to Neon via the pooled string.)
+
+> Type `Question` enum/JSON columns map cleanly to Neon; no SQLite remnants
+> remain in the schema.
+
+## Routes
+
+| Route | Purpose |
+|-------|---------|
+| `/` | Landing page (FAQ + course JSON-LD) |
+| `/diagnostic` | 10-question balanced diagnostic |
+| `/practice` | Adaptive practice (weakest domain first) |
+| `/simulator` | 180-question, 230-minute exam simulator with break interstitials |
+| `/flashcards` | Spaced-repetition flashcard review (SM-2) |
+| `/dashboard` | Readiness score, discipline breakdown, history (login required) |
+| `/curriculum` | 2026 ECO: People 42% / Process 50% / Business Environment 8% |
+| `/about` | Description + no-guarantee disclosure |
+| `/login` `/register` | Optional accounts |
+| `robots.txt` `sitemap.xml` | SEO |
+
+## API
+
+All endpoints create a guest session when none exists (`atp_session` cookie):
+`/api/session`, `/api/register`, `/api/attempt`, `/api/practice/next`,
+`/api/diagnostic`, `/api/assessments`, `/api/simulator`,
+`/api/flashcards`, `/api/flashcards/review`, `/api/auth/[...nextauth]`.
