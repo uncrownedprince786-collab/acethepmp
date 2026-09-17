@@ -103,7 +103,11 @@ auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
   vars; schema `provider = "postgresql"`, `directUrl = env("DIRECT_URL")`
   (pooled vs direct connection strings).
 - **Vercel project `acethepmp`:** production **LIVE** —
-  https://acethepmp-uncrownedprince786-6663s-projects.vercel.app
+  **https://acethepmp.vercel.app** (primary; the long
+  `acethepmp-uncrownedprince786-6663s-projects.vercel.app` also resolves).
+  - `NEXT_PUBLIC_SITE_URL` + `NEXTAUTH_URL` are set to the short
+    `https://acethepmp.vercel.app` so canonical/OG/sitemap and auth callbacks
+    use it. Re-verified (58/58 E2E) after switching domains.
   - Env vars set for Production: `NEXT_PUBLIC_SITE_URL`, `NEXTAUTH_URL`,
     `NEXTAUTH_SECRET` (generated), `DATABASE_URL` (Neon pooled),
     `DIRECT_URL` (Neon direct). ✅
