@@ -87,19 +87,27 @@ auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
 
 ## 6. Deployment (Vercel + Neon)
 
-- **Repo:** github.com/uncrownedprince786-collab/acethepmp (empty at import —
-  first push is this codebase).
+- **Repo:** github.com/uncrownedprince786-collab/acethepmp (default branch
+  `master`).
 - **DB:** Neon serverless Postgres. `.env.example` documents the required
   vars; schema `provider = "postgresql"`, `directUrl = env("DIRECT_URL")`
   (pooled vs direct connection strings).
-- **Vercel env vars to set:** `DATABASE_URL` (pooled), `DIRECT_URL` (direct),
-  `NEXTAUTH_SECRET` (real random), `NEXTAUTH_URL`,
-  `NEXT_PUBLIC_SITE_URL`. `postinstall: prisma generate` ensures the client
-  exists at build time.
-- **After first deploy:** run `npm run db:push` then `npm run db:seed`
-  locally against Neon (via `DIRECT_URL`).
-- **Content sync:** seed creates 32 sample questions. Add more via
-  `prisma/seed.ts` or admin tooling (none yet).
+- **Vercel project `acethepmp`:** production URL
+  https://acethepmp-uncrownedprince786-6663s-projects.vercel.app
+  - Env vars set for Production: `NEXT_PUBLIC_SITE_URL`, `NEXTAUTH_URL`,
+    `NEXTAUTH_SECRET` (generated).
+  - **Blocked on:** `DATABASE_URL` + `DIRECT_URL` (Neon connection strings —
+    owner must add them in the Vercel dashboard), and **Deployment
+    Protection must be turned OFF** in Project → Settings → Deployment
+    Protection (currently shows a "Log in to Vercel" gate to visitors).
+  - Production deploys: `master` pushes deploy as **Preview** only (default
+    production branch is `main`). Either set Production Branch = `master`
+    in Vercel settings or rename the repo default branch to `main`.
+  - Reason for an earlier Production error: Next.js 15.5.4 was flagged
+    "Vulnerable version detected"; fixed by upgrading to Next **15.5.25**.
+- **After DAUABASE_URL/DIRECT_URL are set:** redeploy, then run locally
+  `npm run db:push` and `npm run db:seed` against Neon (via `DIRECT_URL`).
+  `postinstall: prisma generate` ensures the client exists at build time.
 
 ## 7. Known gaps / next steps
 
