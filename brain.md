@@ -66,13 +66,14 @@ dashboard) passes on production — see §5–§6.
 | `robots.txt`, `sitemap.xml` | Generated from `src/lib/seo.ts` `SITE` |
 
 APIs (`/api/...`): session, register, attempt, practice/next, diagnostic,
-assessments, simulator, flashcards, flashcards/review,
-auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
+assessments, simulator (incl. lightweight `?meta=1` bank summary for the intro
+screen), flashcards, flashcards/review, auth/[...nextauth]. Guest sessions boot
+automatically via `GET /api/session`.
 
 ## 5. Verification to-date
 
-- `npm run build` ✅ (Next 15.5.25, zero type errors, all 15 routes compile,
-  sitemap + robots generated).
+- `npm run build` ✅ (Next 15.5.25, zero type errors, all 16 routes compile —
+  14 pages + `/icon` + `/apple-icon`; sitemap + robots generated).
 - `npm run lint` ✅ (eslint-config-next: no errors; warnings cleaned).
 - **Full E2E user-flow suite ✅ 74/74 — run locally (dev server, Neon DB).**
   Script drives a real browser-like cookie jar through: guest session boot →
@@ -112,13 +113,17 @@ auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
   `acethepmp-uncrownedprince786-6663s-projects.vercel.app` also resolves).
   - `NEXT_PUBLIC_SITE_URL` + `NEXTAUTH_URL` are set to the short
     `https://acethepmp.vercel.app` so canonical/OG/sitemap and auth callbacks
-    use it. Re-verified (58/58 E2E) after switching domains.
+    use it. Verified after switching domains — the full E2E suite passed on
+    production.
   - Env vars set for Production: `NEXT_PUBLIC_SITE_URL`, `NEXTAUTH_URL`,
     `NEXTAUTH_SECRET` (generated), `DATABASE_URL` (Neon pooled),
     `DIRECT_URL` (Neon direct). ✅
   - Framework Preset = **Next.js** (was "Other" → plain static 404s), Deploy
     Protection = off.
-  - All pages return HTTP 200 and the full E2E suite passes on production.
+  - All pages return HTTP 200. The latest 74-check E2E suite passes against the
+    local dev server + Neon DB; after each push, re-run it with
+    `BASE=https://acethepmp.vercel.app` once the deploy settles to confirm the
+    same pass on production.
   - Production deploys: with Framework fixed, pushes to the production branch
     deploy correctly (`vercel deploy --prod` also used).
   - Reason for an earlier Production error: Next.js 15.5.4 was flagged
@@ -152,8 +157,9 @@ auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
    bank size instead of "loading…". Brand favicon + iOS icon added
    (`src/app/icon.tsx`, `src/app/apple-icon.tsx`).
 1. **Question bank scale:** 44 questions is a demo volume. Target 200+
-   original, human-reviewed items before leaning on the simulator as a
-   marketing claim. Expand per-domain: People ≥ 50%, Process ≥ 50%, BE ≥ 20.
+   original, human-reviewed items. As the bank grows, hold the domain split
+   near the 2026 ECO proportions (33 / 41 / 26) — `npm run db:audit` reports
+   the drift and fails if any domain strays more than 8 pp.
 2. **Production secrets:** ✅ done — real `NEXTAUTH_SECRET` generated and set in
    Vercel; local `.env` still uses a dev-only secret + Neon URLs (gitignored).
 3. **`brain.md` → README consistency:** README duplicates setup; keep both
