@@ -64,6 +64,9 @@ dashboard) passes on production — see §5–§6.
 | `/curriculum` | 2026 ECO tasks: People 33% / Process 41% / Business Environment 26% (+ Course JSON-LD) |
 | `/about`, `/login`, `/register` | Disclosure, auth flows (password fields have show/hide eye toggle via `src/components/auth/password-input.tsx`) |
 | `robots.txt`, `sitemap.xml` | Generated from `src/lib/seo.ts` `SITE` |
+| `manifest.webmanifest` | PWA manifest (`src/app/manifest.ts`) |
+| `opengraph-image` | Dynamic OG image (`src/app/opengraph-image.tsx`) |
+| `offline.html` | Branded offline fallback page (`public/offline.html`) |
 
 APIs (`/api/...`): session, register, attempt, practice/next, diagnostic,
 assessments, simulator (incl. lightweight `?meta=1` bank summary for the intro
@@ -81,7 +84,7 @@ automatically via `GET /api/session`.
   sign-in rejected (no session, guest cookie preserved) → NextAuth credentials
   sign-in → session retained through login → 10-question diagnostic + attempts
   + assessment → adaptive practice (5 answers) → change-an-answer (repeat
-  attempt + progress counters) → flashcards due-set + SM-2 review → 44-question
+  attempt + progress counters) → flashcards due-set + SM-2 review → 130-question
   ECO-proportional simulator (+ meta endpoint, domain-mix drift <6pp) →
   simulator scoring edge cases (empty submit = 0%, full-exam denominator for
   partial/empty runs) → authenticated `/dashboard` renders → input validation
@@ -147,19 +150,19 @@ automatically via `GET /api/session`.
    time and migrated onto existing rows with `npm run db:retag` (non-destructive,
    idempotent, matched by `stem`). The seed entrypoint moved to
    `prisma/seed-run.ts`; `prisma/seed.ts` is now side-effect free and idempotent
-   (inserts only stems not already in the bank). Bank now **44 original
-   questions: People 15 / Process 18 / BE 11** — 34.1% / 40.9% / 25.0%, within
-   roughly a point of the ECO weights, and **every one of the 26 tasks has ≥1
-   question** (verified by `npm run db:audit`, a read-only
+   (inserts only stems not already in the bank). Bank now **130 original
+   questions: People 43 / Process 53 / BE 34** — 33.1% / 40.8% / 26.2%, within
+   0.2 pp of the ECO weights, and **every one of the 26 tasks has ≥3
+   questions** (verified by `npm run db:audit`, a read-only
    integrity/distribution/scoring check). The simulator samples exams to the
    33/41/26 proportions (weight-based allocation, largest remainder capped by
    supply) and `GET /api/simulator?meta=1` feeds the intro card with the real
    bank size instead of "loading…". Brand favicon + iOS icon added
    (`src/app/icon.tsx`, `src/app/apple-icon.tsx`).
-1. **Question bank scale:** 44 questions is a demo volume. Target 200+
-   original, human-reviewed items. As the bank grows, hold the domain split
-   near the 2026 ECO proportions (33 / 41 / 26) — `npm run db:audit` reports
-   the drift and fails if any domain strays more than 8 pp.
+1. **Question bank scale:** 130 questions across all 26 tasks (≥3 each).
+   Target 200+ original, human-reviewed items. As the bank grows, hold the
+   domain split near the 2026 ECO proportions (33 / 41 / 26) — `npm run
+   db:audit` reports the drift and fails if any domain strays more than 8 pp.
 2. **Production secrets:** ✅ done — real `NEXTAUTH_SECRET` generated and set in
    Vercel; local `.env` still uses a dev-only secret + Neon URLs (gitignored).
 3. **`brain.md` → README consistency:** README duplicates setup; keep both
