@@ -9,12 +9,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@/components/ui/alert";
 import { Info } from "lucide-react";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: "Progress Dashboard & Readiness Score",
-  description:
-    "Track your PMP readiness score, domain strengths and gaps, practice history, and flashcards across People, Process, and Business Environment.",
+  ...pageMetadata({
+    title: "Progress Dashboard & Readiness Score",
+    description:
+      "Track your PMP readiness score, domain strengths and gaps, practice history, and flashcards across People, Process, and Business Environment.",
+    path: "/dashboard",
+  }),
   robots: { index: false, follow: true } as const,
 };
 
@@ -60,7 +64,7 @@ export default async function DashboardPage() {
         take: 20,
       }),
       prisma.progress.count({
-        where: { sessionId, cardRating: { not: null }, dueAt: { lte: new Date() } },
+        where: { sessionId, dueAt: { lte: new Date() } },
       }),
       prisma.attempt.findMany({
         where: { sessionId },

@@ -36,6 +36,11 @@ export async function readLearningContext() {
   const authSession = await auth();
   const userId = authSession?.user?.id ?? null;
 
+  if (!sessionId && userId) {
+    const s = await prisma.session.findFirst({ where: { userId }, orderBy: { createdAt: "desc" } });
+    sessionId = s?.id ?? null;
+  }
+
   return { sessionId, userId, token };
 }
 
@@ -51,6 +56,10 @@ export async function getOrCreateSession() {
 
   const authSession = await auth();
   const userId = authSession?.user?.id ?? null;
+
+  if (!session && userId) {
+    session = await prisma.session.findFirst({ where: { userId }, orderBy: { createdAt: "desc" } });
+  }
 
   if (!session) {
     session = await createSession(userId);

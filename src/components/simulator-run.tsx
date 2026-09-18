@@ -59,6 +59,7 @@ export function SimulatorRun() {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<AssessmentResult | null>(null);
   const ticker = useRef<ReturnType<typeof setInterval> | null>(null);
+  const questionStart = useRef(Date.now());
 
   const totalQuestions = exam?.questions.length ?? 0;
 
@@ -119,6 +120,11 @@ export function SimulatorRun() {
     };
   }, [phase, current]);
 
+  // Reset per-question timer whenever the visible question changes.
+  useEffect(() => {
+    questionStart.current = Date.now();
+  }, [current]);
+
   const flashPending = useRef(false);
 
   const answer = useCallback(
@@ -130,7 +136,8 @@ export function SimulatorRun() {
       setAnswers(next);
 
       // Best-effort background save; don't block the UI.
-      const started = Date.now();
+      const elapsed = Math.max(1, Math.round((Date.now() - questionStart.current) / 1000));
+      questionStart.current = Date.now();
       fetch("/api/attempt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -138,7 +145,7 @@ export function SimulatorRun() {
         body: JSON.stringify({
           questionId: q.id,
           selectedKey: key,
-          timeSeconds: Math.max(1, Math.round((Date.now() - started) / 1000)),
+          timeSeconds: elapsed,
         }),
       })
         .then((r) => r.json())
