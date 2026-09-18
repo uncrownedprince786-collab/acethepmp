@@ -19,12 +19,12 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Disclaimer } from "@/components/disclaimer";
 import { DOMAIN_META, DOMAIN_ORDER, TASKS, ENV_META } from "@/lib/eco";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, SITE } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Free Adaptive PMP Preparation Platform",
+  title: "Free PMP Exam Prep 2026 — Practice & Simulator",
   description:
-    "Completely free adaptive PMP practice aligned to the 2026 Examination Content Outline: original questions, realistic simulator, flashcards, and a readiness score. No paywalls — build complete PMP knowledge.",
+    "Free adaptive PMP preparation aligned to the 2026 ECO. 130+ original questions, realistic 180-question exam simulator, smart flashcards, and readiness score. No paywall, ever.",
   path: "/",
 });
 
@@ -92,11 +92,17 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      name: "Ace the PMP",
+      url: SITE.url,
+      description: SITE.description,
+    },
+    {
       "@type": "WebSite",
       name: "Ace the PMP",
-      url: "https://acethepmp.com",
+      url: SITE.url,
       description:
-        "Free adaptive PMP preparation platform with original practice questions and a realistic exam simulator.",
+        "Free adaptive PMP preparation platform with original practice questions and a realistic exam simulator aligned to the 2026 ECO.",
       inLanguage: "en",
     },
     {

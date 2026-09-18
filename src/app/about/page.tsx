@@ -4,10 +4,11 @@ import { Disclaimer } from "@/components/disclaimer";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About — Our Promise & How Questions Are Made",
+  title: "About — Free PMP Prep, No Pass Guarantee",
   description:
-    "Ace the PMP is independent, completely free, and built on original, human-reviewed content. Learn how we make questions and why we never promise exam results.",
+    "Ace the PMP is a free, independent PMP preparation platform for the 2026 exam. Original questions, not affiliated with PMI. No pass guarantee — honest prep only.",
   path: "/about",
+  keywords: ["about Ace the PMP", "free PMP preparation", "PMP not affiliated PMI"],
 });
 
 const pillars = [

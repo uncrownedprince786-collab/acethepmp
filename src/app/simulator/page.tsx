@@ -3,11 +3,11 @@ import { SimulatorRun } from "@/components/simulator-run";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Free PMP Exam Simulator — 180 Questions, Realistic Timing",
+  title: "Free PMP Exam Simulator 2026 — 180 Questions, 240 Minutes",
   description:
-    "Take a full-length free PMP exam simulation: 180 questions across People, Process, and Business Environment with 240 minutes and two 10-minute breaks, then review every answer.",
+    "Realistic free PMP exam simulator: 180 questions, 240 minutes, two 10-minute breaks. ECO-proportional across People, Process & Business Environment. Review every answer.",
   path: "/simulator",
-  keywords: ["PMP mock exam", "PMP exam simulator", "180 question PMP test"],
+  keywords: ["PMP mock exam 2026", "PMP exam simulator free", "180 question PMP test", "PMP practice exam"],
 });
 
 export default function SimulatorPage() {

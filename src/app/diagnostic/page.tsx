@@ -4,11 +4,11 @@ import { Disclaimer } from "@/components/disclaimer";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Free PMP Diagnostic Test",
+  title: "Free PMP Diagnostic Test 2026 — Readiness Score",
   description:
-    "Take the free PMP diagnostic test: 10 original questions across People, Process, and Business Environment. Get a domain-by-domain breakdown and a starting readiness score.",
+    "Take a free 10-question PMP diagnostic across People, Process & Business Environment. See your domain strengths and readiness score instantly. Aligned to the 2026 ECO.",
   path: "/diagnostic",
-  keywords: ["free PMP practice test", "PMP diagnostic", "PMP gap analysis"],
+  keywords: ["free PMP practice test", "PMP diagnostic 2026", "PMP gap analysis", "PMP readiness score"],
 });
 
 export default function DiagnosticPage() {

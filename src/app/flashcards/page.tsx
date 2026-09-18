@@ -3,11 +3,11 @@ import { FlashcardDeck } from "@/components/flashcard-deck";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Free PMP Flashcards",
+  title: "Free PMP Flashcards 2026 — Spaced Repetition",
   description:
-    "Smart free PMP flashcards that schedule themselves around your memory. Cards come from the questions you practice, with spaced repetition built in.",
+    "Smart free PMP flashcards with spaced repetition. Cards are generated from your practice misses, scheduled so you revisit them right before you forget. 2026 ECO aligned.",
   path: "/flashcards",
-  keywords: ["PMP flashcards", "spaced repetition PMP", "PMP memory cards"],
+  keywords: ["PMP flashcards free", "spaced repetition PMP", "PMP memory cards", "PMP flashcards 2026"],
 });
 
 export default function FlashcardsPage() {

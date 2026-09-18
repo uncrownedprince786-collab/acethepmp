@@ -3,11 +3,11 @@ import { PracticeRun } from "@/components/practice-run";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Free Adaptive PMP Practice Questions",
+  title: "Free PMP Practice Questions 2026 — Adaptive Engine",
   description:
-    "Unlimited free adaptive PMP practice questions that target your weakest domain at the right difficulty, with human-reviewed explanations for every answer.",
+    "Adaptive PMP practice questions mapped to the 2026 exam content outline. Targets your weakest domain at the right difficulty. Explanations included. Completely free.",
   path: "/practice",
-  keywords: ["adaptive PMP practice", "PMP practice questions free", "PMP exam prep"],
+  keywords: ["adaptive PMP practice", "PMP practice questions free", "PMP exam prep 2026"],
 });
 
 export default function PracticePage() {

@@ -12,14 +12,15 @@ export const SITE = {
   description:
     "Ace the PMP is a completely free, adaptive PMP preparation platform with original practice questions, a realistic exam simulator, AI-assisted explanations, and a readiness score aligned to the 2026 PMI Examination Content Outline.",
   keywords: [
-    "free PMP prep",
-    "PMP practice questions",
-    "PMP exam simulator",
+    "free PMP practice questions",
+    "PMP exam simulator 2026",
+    "free PMP preparation",
     "2026 PMP exam",
-    "PMP Examination Content Outline",
+    "PMP Examination Content Outline 2026",
     "adaptive PMP practice",
     "PMP readiness score",
-    "PMP flashcard",
+    "PMP flashcards free",
+    "free PMP diagnostic test",
     "PMP study free",
   ],
 } as const;

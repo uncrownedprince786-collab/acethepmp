@@ -6,14 +6,14 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Disclaimer } from "@/components/disclaimer";
 import { DOMAIN_META, DOMAIN_ORDER, TASKS, ENV_META } from "@/lib/eco";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, SITE } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "2026 PMP Exam Content Outline Roadmap",
+  title: "PMP Exam Content Outline 2026 — Domains & Tasks",
   description:
-    "The complete free PMP study roadmap aligned to the 2026 Examination Content Outline: all 3 domains and all 26 tasks of People, Process, and Business Environment, each with original practice questions.",
+    "Full 2026 PMP ECO: People 33%, Process 41%, Business Environment 26%. All 26 tasks explained with original practice questions. Free study roadmap.",
   path: "/curriculum",
-  keywords: ["PMP ECO 2026", "PMP domains tasks", "PMP study roadmap", "PMP syllabus free"],
+  keywords: ["PMP ECO 2026", "PMP domains tasks", "PMP study roadmap", "PMP syllabus free", "PMP content outline 2026"],
 });
 
 const jsonLd = {
@@ -22,7 +22,7 @@ const jsonLd = {
   name: "Ace the PMP — 2026 ECO-aligned PMP preparation",
   description:
     "Free, adaptive PMP preparation covering the People, Process, and Business Environment domains of the 2026 PMI Examination Content Outline with original practice questions.",
-  provider: { "@type": "Organization", name: "Ace the PMP", sameAs: "https://acethepmp.com" },
+  provider: { "@type": "Organization", name: "Ace the PMP", sameAs: SITE.url },
   inLanguage: "en",
 };
 
