@@ -39,12 +39,13 @@ Then paste your Neon connection strings into `.env`:
 | `NEXTAUTH_URL` | `http://localhost:3000` locally, your domain in prod |
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL for sitemap/metadata |
 
-Create the schema and load the seed content (32 original questions + a demo
+Create the schema and load the seed content (44 original questions + a demo
 account):
 
 ```bash
 npm run db:push    # applies schema to the database
-npm run db:seed    # 32 questions + demo@acethepmp.com / password123
+npm run db:seed    # 44 questions + demo@acethepmp.com / password123
+npm run db:audit   # read-only data-quality check (tags, distribution, scoring)
 ```
 
 Run the app:

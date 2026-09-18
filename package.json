@@ -11,6 +11,7 @@
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
     "db:retag": "tsx prisma/retag-eco.ts",
+    "db:audit": "tsx prisma/audit-data.ts",
     "db:studio": "prisma studio",
     "db:reset": "prisma db push --force-reset && prisma db seed"
   },

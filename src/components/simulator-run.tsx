@@ -55,11 +55,25 @@ export function SimulatorRun() {
   const [expired, setExpired] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [bankTotal, setBankTotal] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<AssessmentResult | null>(null);
   const ticker = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const totalQuestions = exam?.questions.length ?? 0;
+
+  // Bank size for the intro screen. Loaded without starting an exam.
+  useEffect(() => {
+    let active = true;
+    apiFetch<{ total: number }>("/api/simulator?meta=1")
+      .then((data) => {
+        if (active) setBankTotal(data.total);
+      })
+      .catch(() => undefined);
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const start = useCallback(async () => {
     setLoading(true);
@@ -171,7 +185,7 @@ export function SimulatorRun() {
     try {
       const res = await apiFetch<AssessmentResult>("/api/assessments", {
         method: "POST",
-        body: JSON.stringify({ mode: "simulator", results }),
+        body: JSON.stringify({ mode: "simulator", results, total: exam.questions.length }),
       });
       setResult(res);
       setPhase("results");
@@ -201,7 +215,7 @@ export function SimulatorRun() {
             <div className="rounded-xl border border-border bg-muted/40 p-4">
               <p className="text-sm font-semibold">180 questions</p>
               <p className="text-xs text-muted-foreground">
-                current bank: {exam && !loading ? `${exam.total} questions` : "loading…"}
+                current bank: {bankTotal !== null ? `${bankTotal} questions` : "checking…"}
               </p>
             </div>
             <div className="rounded-xl border border-border bg-muted/40 p-4">

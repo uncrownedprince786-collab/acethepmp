@@ -15,7 +15,10 @@ const ResultRow = z.object({
 
 const CompleteSchema = z.object({
   mode: z.enum(["diagnostic", "simulator"]).default("diagnostic"),
-  results: z.array(ResultRow).min(1).max(200),
+  results: z.array(ResultRow).max(200),
+  // Simulator only: total questions in the exam. Unanswered questions are
+  // counted as incorrect, so the score is correct / total, not correct / answered.
+  total: z.number().int().min(0).max(500).optional(),
 });
 
 /**
@@ -32,6 +35,10 @@ export async function POST(req: NextRequest) {
 
   const { sessionId, cookie } = await resolveSession();
   const { mode, results } = parsed.data;
+  const denominator =
+    mode === "simulator" && parsed.data.total !== undefined
+      ? Math.max(parsed.data.total, results.length)
+      : results.length;
 
   const ids = results.map((r) => r.questionId);
   const questions = await prisma.question.findMany({
@@ -67,7 +74,7 @@ export async function POST(req: NextRequest) {
       mode,
       domainScores: domainScores as object,
       totalCorrect,
-      total: results.length,
+      total: denominator,
       readiness: breakdown.score,
     },
   });
@@ -78,8 +85,8 @@ export async function POST(req: NextRequest) {
     readiness: breakdown.score,
     label: breakdown.label,
     totalCorrect,
-    total: results.length,
-    pct: Math.round((totalCorrect / results.length) * 100),
+    total: denominator,
+    pct: denominator > 0 ? Math.round((totalCorrect / denominator) * 100) : 0,
     domainScores,
     needs: breakdown.needs,
   });

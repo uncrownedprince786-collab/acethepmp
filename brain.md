@@ -58,7 +58,7 @@ dashboard) passes on production — see §5–§6.
 | `/` | Landing: hero, features, DOMAIN/ECO grid, FAQ + WebSite/FAQ JSON-LD, footer disclaimer |
 | `/diagnostic` | 10-question balanced diagnostic across the three domains; stores result + readiness |
 | `/practice` | Adaptive practice — weakest ECO domain first, difficulty bands, no answer-key leak |
-| `/simulator` | 180 Q / 240 min, domain-interleaved bank, palette + flagging, breaks after Q60/Q120 |
+| `/simulator` | 180 Q / 240 min, ECO-proportional (33/41/26) exam selection, palette + flagging, breaks after Q60/Q120 |
 | `/flashcards` | SM-2 spaced repetition from practice misses; "again/hard/good/easy" ratings |
 | `/dashboard` | Readiness gauge, per-domain bars, streak, attempt history (login required, noindex) |
 | `/curriculum` | 2026 ECO tasks: People 33% / Process 41% / Business Environment 26% (+ Course JSON-LD) |
@@ -74,22 +74,27 @@ auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
 - `npm run build` ✅ (Next 15.5.25, zero type errors, all 15 routes compile,
   sitemap + robots generated).
 - `npm run lint` ✅ (eslint-config-next: no errors; warnings cleaned).
-- **Full E2E user-flow suite ✅ 58/58 — run against both local (`next start`)
-  and the live Vercel production URL.** Script drives a real browser-like
-  cookie jar through: guest session boot → register (incl. short-password +
-  duplicate-email rejection) → NextAuth credentials sign-in → session retained
-  through login → 10-question diagnostic + attempts + assessment → adaptive
-  practice (5 answers) → flashcards due-set + SM-2 review → 32-question
-  simulator + assessment → authenticated `/dashboard` renders → input
-  validation errors → sign-out. Also asserts practice/simulator/diagnostic
-  payloads never leak `correctKey` and diagnostic questions are unique.
+- **Full E2E user-flow suite ✅ 74/74 — run locally (dev server, Neon DB).**
+  Script drives a real browser-like cookie jar through: guest session boot →
+  register (incl. short-password + duplicate-email rejection) → wrong-password
+  sign-in rejected (no session, guest cookie preserved) → NextAuth credentials
+  sign-in → session retained through login → 10-question diagnostic + attempts
+  + assessment → adaptive practice (5 answers) → change-an-answer (repeat
+  attempt + progress counters) → flashcards due-set + SM-2 review → 44-question
+  ECO-proportional simulator (+ meta endpoint, domain-mix drift <6pp) →
+  simulator scoring edge cases (empty submit = 0%, full-exam denominator for
+  partial/empty runs) → authenticated `/dashboard` renders → input validation
+  errors → sign-out. Also asserts practice/simulator/diagnostic payloads never
+  leak `correctKey`, diagnostic questions are unique, and the favicon routes
+  serve PNGs.
 - Earlier runtime smoke tests ✅ against `next start` (still hold):
   - `/api/session` boots a guest session (200).
   - `/api/diagnostic` returns 10 questions, domain-balanced.
   - `/api/attempt` records answers, computes isCorrect, returns explanation +
     updates progress/streak.
   - `/api/assessments` completes a run, computes readiness + needs text.
-  - `/api/simulator` returns the interleaved 32-question bank.
+  - `/api/simulator` returns the ECO-proportional 44-question bank (`?meta=1`
+    reports bank size + per-domain counts for the intro screen).
   - `/api/flashcards` only surfaces **due** cards (empty until practice
     creates dueAt≤now); `/api/flashcards/review` updates SM-2 interval/dueAt.
 - Practice payload intentionally omits `correctKey` (verified no answer-key
@@ -119,8 +124,10 @@ auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
   - Reason for an earlier Production error: Next.js 15.5.4 was flagged
     "Vulnerable version detected"; fixed by upgrading to Next **15.5.25**.
 - **Database:** `npm run db:push` + `npm run db:seed` run against Neon
-  (schema in sync, 32 questions + demo user). `postinstall: prisma generate`
-  ensures the client exists at build time.
+  (schema in sync, 44 questions + demo user). `db:seed` is idempotent (inserts
+  only unseen stems). `db:retag` re-applies ECO tags (matched by `stem`),
+  `db:audit` runs a read-only integrity/distribution/scoring check.
+  `postinstall: prisma generate` ensures the client exists at build time.
 - The E2E runs create throwaway `e2e_<timestamp>@example.com` accounts in Neon;
   prune with a `deleteMany` on `User` where email starts with `e2e_` if desired.
 
@@ -133,11 +140,18 @@ auth/[...nextauth]. Guest sessions boot automatically via `GET /api/session`.
    cutoff from the weights. Question tags are driven by `prisma/eco-tags.ts`
    (single source of truth, index-aligned with `prisma/seed.ts`), applied at seed
    time and migrated onto existing rows with `npm run db:retag` (non-destructive,
-   idempotent, matched by `stem`). Bank distribution after retag: **People 13 /
-   Process 10 / BE 9** (32 total). The seed entrypoint moved to
-   `prisma/seed-run.ts`; `prisma/seed.ts` is now side-effect free so the retag can
-   import its data.
-1. **Question bank scale:** 32 questions is a demo volume. Target 200+
+   idempotent, matched by `stem`). The seed entrypoint moved to
+   `prisma/seed-run.ts`; `prisma/seed.ts` is now side-effect free and idempotent
+   (inserts only stems not already in the bank). Bank now **44 original
+   questions: People 15 / Process 18 / BE 11** — 34.1% / 40.9% / 25.0%, within
+   roughly a point of the ECO weights, and **every one of the 26 tasks has ≥1
+   question** (verified by `npm run db:audit`, a read-only
+   integrity/distribution/scoring check). The simulator samples exams to the
+   33/41/26 proportions (weight-based allocation, largest remainder capped by
+   supply) and `GET /api/simulator?meta=1` feeds the intro card with the real
+   bank size instead of "loading…". Brand favicon + iOS icon added
+   (`src/app/icon.tsx`, `src/app/apple-icon.tsx`).
+1. **Question bank scale:** 44 questions is a demo volume. Target 200+
    original, human-reviewed items before leaning on the simulator as a
    marketing claim. Expand per-domain: People ≥ 50%, Process ≥ 50%, BE ≥ 20.
 2. **Production secrets:** ✅ done — real `NEXTAUTH_SECRET` generated and set in

@@ -48,4 +48,22 @@ export const ECO_TAGS: EcoTag[] = [
   { domain: "PROCESS", task: 3 }, // 30 benefits realization tracking
   { domain: "BUSINESS_ENV", task: 8 }, // 31 competitor changes the business case
   { domain: "BUSINESS_ENV", task: 7 }, // 32 reduce resistance to org change
+
+  // ------------------------------------ added 2026-09 for ECO balance (Process depth)
+  { domain: "PROCESS", task: 2 }, // 33 scope creep: route requests through change control
+  { domain: "PROCESS", task: 9 }, // 34 evaluate true status with objective progress signals
+  { domain: "PROCESS", task: 1 }, // 35 integrated planning: align approach before plan
+  { domain: "PROCESS", task: 4 }, // 36 resolve resource over-allocation with leveling
+  { domain: "PROCESS", task: 6 }, // 37 draw on contingency reserve via funding process
+  { domain: "PROCESS", task: 3 }, // 38 prioritize scope by business value
+
+  // ------------------------------------ added 2026-09 for ECO balance (Business Env task 6)
+  { domain: "BUSINESS_ENV", task: 6 }, // 39 update process assets from recurring defect
+
+  // ------------------------------------ added 2026-09 to cover remaining tasks
+  { domain: "PEOPLE", task: 1 }, // 40 develop a shared vision and success criteria
+  { domain: "PEOPLE", task: 6 }, // 41 manage a customer's inflated expectations
+  { domain: "PROCESS", task: 5 }, // 42 match contract type to requirement certainty
+  { domain: "PROCESS", task: 7 }, // 43 build quality in with prevention, not inspection
+  { domain: "BUSINESS_ENV", task: 1 }, // 44 establish decision rights and escalation paths
 ];
