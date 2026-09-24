@@ -29,15 +29,10 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: |
-            package-lock.json
-            scripts/daily-blog/package-lock.json
+          cache-dependency-path: scripts/daily-blog/package-lock.json
 
       - name: Install generator deps
         working-directory: scripts/daily-blog
-        run: npm ci
-
-      - name: Install app deps (typecheck gate)
         run: npm ci
 
       - name: Locate system Chrome for Puppeteer
@@ -58,7 +53,7 @@ jobs:
             echo "no post changes this run"
             exit 0
           fi
-          npx tsc --noEmit
+          npx --yes -p typescript@5.9.3 tsc --noEmit --skipLibCheck --strict --esModuleInterop --module esnext --moduleResolution bundler --resolveJsonModule --isolatedModules --target es2017 src/content/posts.ts
 
       - name: Commit and push the post
         run: |
