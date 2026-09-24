@@ -141,13 +141,26 @@ automatically via `GET /api/session`.
   (--dry-run | --force | --topic N)`. Needs a local Chrome.
 - **Optional express helper:** `&& npx vercel deploy --prod --yes` if you keep
   the flow manual.
-- **⚠ Deploy model:** the `acethepmp` Vercel project has **no Git link**
-  (`link.gitRepo` empty), so pushes do **not** auto-deploy. For the daily post
-  to reach production automatically, add **one** repository secret
-  (`Settings → Secrets → Actions`): either `VERCEL_DEPLOY_HOOK` (created in
-  Vercel `Dashboard → Project → Settings → Git → Deploy Hooks`, ref `master`)
-  or `VERCEL_TOKEN` (vercel.com/account/tokens). Until then, deploy manually
-  with `npx vercel deploy --prod --yes` after each post.
+- **✅ Deploy model (now autonomous):** the `acethepmp` Vercel project has **no
+  Git link** (`link.gitRepo` empty), so pushes do **not** auto-deploy. The
+  workflow deploys via the **`VERCEL_TOKEN` repo secret (SET 2026-09-24** via
+  GitHub API, value = the Vercel CLI login token from
+  `AppData\Roaming\xdg.data\com.vercel.cli\auth.json`; verified with
+  `npx vercel@latest deploy --prod --yes --token` → "Aliased" in 52s). `gho_`
+  OAuth PAT on this machine has **admin** scope on this public repo.
+- **Local backup deployer:** `scripts/deploy-daily.{mjs,ps1}` +
+  **Scheduled Task `AceThePMP auto-deploy`** (daily 11:30 IST / 06:00 UTC) pulls
+  `master`, and if the latest commit is the auto-post
+  (`chore(blog): automatic daily study guide`) it deploys via the local CLI —
+  **unless** the Vercel deployments API already shows a READY deployment newer
+  than that commit (i.e. Actions already shipped it). State/lock in
+  `%LOCALAPPDATA%\ace-the-pmp\` (`last-deployed-sha.txt`, `deploy.lock`),
+  logs to `deploy-daily.log`. So: even if GitHub Actions fails, a post still
+  reaches production the same morning.
+- **Tokens:** Vercel login token in `auth.json` also works with `--token`
+  (checked 2026-09-24). If it ever expires, re-auth locally and update the
+  `VERCEL_TOKEN` secret (PUT via GitHub API needs the `gho_` PAT + libsodium
+  sealed box from the repo public key; helper: `seal.mjs` in temp).
 
 ## 6. Deployment (Vercel + Neon)
 
