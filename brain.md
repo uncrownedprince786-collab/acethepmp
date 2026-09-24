@@ -132,9 +132,13 @@ automatically via `GET /api/session`.
   4. validates: required blocks/callouts (PDMC-style disclaimer + Sources),
      ≥2 internal tool links, title/excerpt/keyword budget, duplicate-slug guard,
      near-verbatim overlap guard vs. scraped text,
-  5. appends to `src/content/posts.ts` (published = today; same-day guard means
-     re-runs are no-ops), gates with `npx tsc --noEmit`, commits
-     `chore(blog): automatic daily study guide`, pushes `master`,
+5. appends to `src/content/posts.ts` (published = today; same-day guard means
+      re-runs are no-ops), gates by compiling `posts.ts` standalone with
+      `npx -p typescript tsc` **without** installing app deps (the root
+      `package-lock.json` is platform-bound — Windows vs Linux npm resolve the
+      `@emnapi/*` optional natives differently, so `npm ci` fails on the
+      runner; the workflow no longer tries it), commits
+      `chore(blog): automatic daily study guide`, pushes `master`,
   6. deploys via `VERCEL_DEPLOY_HOOK` or `VERCEL_TOKEN` GitHub secret when
      configured (else warns).
 - **Run locally:** `cd scripts/daily-blog && npm ci && node generate.mjs
