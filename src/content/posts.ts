@@ -970,4 +970,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-risk-management-2026",
+    title: "PMP Risk Management (2026)",
+    category: "Domain deep dive",
+    excerpt: "Risk questions on the PMP are less about math and more about judgment: do you know when to document, when to analyze, and when to take action. Most risk failures on the.",
+    keywords: ["pmp risk management","how to study risk management for pmp","pmp risk questions","business environment domain pmp","pmp risk register"],
+    published: "2026-09-24",
+    readMinutes: 3,
+    intro: "Risk questions on the PMP are less about math and more about judgment: do you know when to document, when to analyze, and when to take action. Most risk failures on the exam come from skipping steps, not from missing formulas. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "Prove it with practice questions, not passive reading",
+      body: "Risk questions are judgment-heavy, so exposure to scored examples beats reading about them. Use the free adaptive practice engine to drill the Business Environment domain at your level.",
+      href: "/practice",
+      label: "Practice free",
+    },
+    related: ["pmp-business-environment-domain-tasks","pmp-26-tasks-overview","pmp-exam-tips"],
+    blocks: [
+      {
+        t: "p",
+        text: "Risk questions on the PMP are less about math and more about judgment: do you know when to document, when to analyze, and when to take action. Most risk failures on the exam come from skipping steps, not from missing formulas. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["The 2026 PMP exam weighs the Business Environment domain at 26 percent of your score.","Business Environment task 5 on the 2026 ECO is 'Plan and manage risk' — identify, analyze, and respond to uncertainty that can affect the project.","Business Environment task 4 is 'Remove impediments and manage issues', and task 6 is 'Continuous improvement'.","The 2026 ECO lists 26 tasks in total across the three domains."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Memorize the risk loop, not formulas: identify, assess (probability x impact), plan response, implement, and monitor.","Know the four response families — avoid, transfer, mitigate, accept — plus exploit, enhance, and share for opportunities.","A threat that turns real becomes an issue; know that the exam distinguishes the two and tests your transition behavior.","For 'what should the PM do first' risk questions, the preferred move is usually to gather information with the team before escalating or replanning.","Read questions about external change (market, regulation, politics) through the Business Environment lens, because that is the domain they are testing."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** If you can apply the risk loop to a real scenario and explain your choice out loud, you can answer most of the risk questions the 2026 exam throws at you — no memorized tables required.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI — PMP Certification](https://www.pmi.org/certifications/project-management-pmp) · [PMI — PMP Exam Preparation](https://www.pmi.org/certifications/project-management-pmp/exam-preparation) · [PMI — PMP Requirements & Exam Content Outline](https://www.pmi.org/certifications/project-management-pmp/requirements) · [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];

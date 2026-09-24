@@ -1,0 +1,14 @@
+{
+  "name": "ace-the-pmp-daily-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "dry": "node generate.mjs --dry-run"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.0.0"
+  }
+}

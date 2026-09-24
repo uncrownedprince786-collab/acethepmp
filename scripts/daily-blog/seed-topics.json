@@ -1,0 +1,382 @@
+[
+  {
+    "slug": "pmp-risk-management-2026",
+    "category": "Domain deep dive",
+    "keywords": [
+      "pmp risk management",
+      "how to study risk management for pmp",
+      "pmp risk questions",
+      "business environment domain pmp",
+      "pmp risk register"
+    ],
+    "related": [
+      "pmp-business-environment-domain-tasks",
+      "pmp-26-tasks-overview",
+      "pmp-exam-tips"
+    ],
+    "factHints": ["risk", "impediment", "issue", "uncertainty"],
+    "facts": [
+      "The 2026 PMP exam weighs the Business Environment domain at 26 percent of your score.",
+      "Business Environment task 5 on the 2026 ECO is 'Plan and manage risk' — identify, analyze, and respond to uncertainty that can affect the project.",
+      "Business Environment task 4 is 'Remove impediments and manage issues', and task 6 is 'Continuous improvement'.",
+      "The 2026 ECO lists 26 tasks in total across the three domains."
+    ],
+    "angle": "Risk questions on the PMP are less about math and more about judgment: do you know when to document, when to analyze, and when to take action. Most risk failures on the exam come from skipping steps, not from missing formulas.",
+    "advice": [
+      "Memorize the risk loop, not formulas: identify, assess (probability x impact), plan response, implement, and monitor.",
+      "Know the four response families — avoid, transfer, mitigate, accept — plus exploit, enhance, and share for opportunities.",
+      "A threat that turns real becomes an issue; know that the exam distinguishes the two and tests your transition behavior.",
+      "For 'what should the PM do first' risk questions, the preferred move is usually to gather information with the team before escalating or replanning.",
+      "Read questions about external change (market, regulation, politics) through the Business Environment lens, because that is the domain they are testing."
+    ],
+    "takeaway": "If you can apply the risk loop to a real scenario and explain your choice out loud, you can answer most of the risk questions the 2026 exam throws at you — no memorized tables required.",
+    "cta": {
+      "title": "Prove it with practice questions, not passive reading",
+      "body": "Risk questions are judgment-heavy, so exposure to scored examples beats reading about them. Use the free adaptive practice engine to drill the Business Environment domain at your level.",
+      "href": "/practice",
+      "label": "Practice free"
+    }
+  },
+  {
+    "slug": "pmp-schedule-management-techniques",
+    "category": "Domain deep dive",
+    "keywords": [
+      "pmp schedule management",
+      "critical path method pmp",
+      "schedule baseline pmp",
+      "process domain pmp",
+      "pmp schedule questions"
+    ],
+    "related": [
+      "pmp-process-domain-tasks-list",
+      "pmp-26-tasks-overview",
+      "pmp-exam-format-2026"
+    ],
+    "factHints": ["schedule", "critical path", "duration", "baseline"],
+    "facts": [
+      "The 2026 PMP exam weighs the Process domain at 41 percent of your score — the largest of the three.",
+      "Process task 8 on the 2026 ECO is 'Plan and manage schedule': sequence the work, estimate durations, and track progress against the plan.",
+      "Schedule performance is evaluated as part of Process task 9, 'Evaluate project status'.",
+      "The exam itself is 180 questions in 240 minutes, which disciplines how much time you have to deploy these techniques on test day."
+    ],
+    "angle": "The schedule questions on the 2026 exam rarely ask you to compute a full critical path. They ask whether you know what the tools mean, what they are for, and what to do when reality deviates from the plan.",
+    "advice": [
+      "Understand the critical path as the longest chain of dependent activities — the one that sets the finish date — not as the busiest list of tasks.",
+      "Know that float (slack) is the room a non-critical activity has before it delays the project, and that critical-path activities have zero float.",
+      "Learn the difference between crashing (add resources, usually more cost) and fast tracking (do activities in parallel, usually more risk).",
+      "For 'what changes when schedule slips' questions, the usual first move is to re-analyze the critical path before promising a new date.",
+      "Watch for predictive-versus-agile tension: in a predictive project you protect the baseline; in an adaptive one you re-plan every iteration."
+    ],
+    "takeaway": "Master the concepts and the decision logic behind schedule tools, and the Process-domain schedule questions become judgment calls instead of calculation anxiety.",
+    "cta": {
+      "title": "Train schedule judgment under real time pressure",
+      "body": "The simulator runs the full 180-question, 240-minute 2026 format with the Process domain weighted at 41 percent — the same pressure you will feel on exam day.",
+      "href": "/simulator",
+      "label": "Start a simulator run"
+    }
+  },
+  {
+    "slug": "pmp-stakeholder-engagement-plan",
+    "category": "Domain deep dive",
+    "keywords": [
+      "pmp stakeholder management",
+      "stakeholder engagement plan",
+      "pmp people questions",
+      "people domain pmp",
+      "stakeholder analysis pmp"
+    ],
+    "related": [
+      "pmp-people-domain-tasks-list",
+      "pmp-26-tasks-overview",
+      "pmp-exam-tips"
+    ],
+    "factHints": ["stakeholder", "expectation", "communicat", "engagement"],
+    "facts": [
+      "The 2026 PMP exam weighs the People domain at 33 percent of your score.",
+      "People tasks 4 and 5 on the 2026 ECO are about engaging stakeholders and aligning their expectations.",
+      "People task 6 is 'Manage stakeholder expectations', and task 8 is 'Plan and manage communication'.",
+      "The 2026 ECO defines 26 tasks total, with 8 in the People domain alone."
+    ],
+    "angle": "Stakeholder questions are the most 'people-first' questions on the exam: the test rewards servant behavior, early communication, and honesty — never silence, spin, or escalation-by-default.",
+    "advice": [
+      "Identify stakeholders before you engage them; the exam will test that sequencing again and again.",
+      "Classify by power, influence, and attitude — and remember the point is to choose the right engagement level, not to label people.",
+      "When expectations conflict, the preferred move is to surface it and work toward alignment with the group, not to quietly pick the sponsor's side.",
+      "Communication questions reward matching the message to the audience's need and to the communication plan — not over-communicating to everyone.",
+      "Build trust by reporting honestly, including bad news, because the exam treats transparency as a leadership asset."
+    ],
+    "takeaway": "Answer as a servant leader who communicates early and honestly, and the People-domain questions stop feeling like traps and start feeling predictable.",
+    "cta": {
+      "title": "Find out which People skills are your weak spot",
+      "body": "The free diagnostic breaks your readiness into the three ECO domains, so you can see if stakeholder judgment is dragging your People score down before you invest study time.",
+      "href": "/diagnostic",
+      "label": "Take the free diagnostic"
+    }
+  },
+  {
+    "slug": "pmp-agile-versus-predictive-scenarios",
+    "category": "Exam format",
+    "keywords": [
+      "agile vs predictive pmp questions",
+      "pmp agile scenarios",
+      "hybrid delivery pmp",
+      "pmp scenario questions",
+      "pmp delivery approaches"
+    ],
+    "related": [
+      "pmp-exam-format-2026",
+      "how-many-questions-on-the-pmp-exam",
+      "pmp-exam-tips"
+    ],
+    "factHints": ["agile", "predictive", "hybrid", "adaptive", "waterfall", "iterative"],
+    "facts": [
+      "The 2026 exam tests questions in predictive (waterfall), agile or adaptive, and hybrid contexts.",
+      "A full PMP exam run is 180 questions across 240 minutes, with two optional 10-minute breaks that do not count against your time.",
+      "Only 170 of the 180 questions are scored; the remaining 10 are unscored pretest items.",
+      "The 2026 ECO puts delivering value-based results and choosing the right delivery approach at the center of planning work."
+    ],
+    "angle": "Half the battle on the 2026 exam is recognizing which delivery environment a question is set in, because the 'right' answer depends on it. An agile answer in a predictive project is wrong — and the exam builds traps around exactly that mistake.",
+    "advice": [
+      "Read the first line of every scenario for delivery-environment markers: iterations, sprints, and product backlog point to agile; phases and baselines point to predictive.",
+      "In agile projects, the product owner owns priority, the team owns commitment, and the Scrum Master serves the process.",
+      "In predictive projects, the baseline is protected through formal change control before anyone promises a new date or cost.",
+      "Hybrid questions usually test how you blend the two: keep what needs structure structured and what needs flexibility flexible.",
+      "When stuck, ask what a servant leader in that environment would do next — the answer is usually the least dramatic, most communicative option."
+    ],
+    "takeaway": "Train yourself to name the environment before you name the answer, and scenario questions switch from guessing games to pattern recognition.",
+    "cta": {
+      "title": "Practice scenarios in all three environments",
+      "body": "The adaptive practice engine labels every question by domain and delivery environment, so you can sharpen your environment-recognition skill deliberately.",
+      "href": "/practice",
+      "label": "Drill scenarios free"
+    }
+  },
+  {
+    "slug": "pmp-application-descriptions-approval",
+    "category": "Exam process",
+    "keywords": [
+      "pmp application approval",
+      "how to write pmp application",
+      "pmp experience examples",
+      "pmp eligibility requirements",
+      "pmp application tips"
+    ],
+    "related": [
+      "pmp-exam-requirements-application",
+      "pmp-exam-cost-2026",
+      "pmp-exam-passing-score-2026"
+    ],
+    "factHints": ["application", "eligibility", "contact hours", "experience", "approval"],
+    "facts": [
+      "Candidates with a four-year degree need 36 months of leading projects; candidates with a high school diploma or associate degree need 60 months.",
+      "All candidates must also complete 35 contact hours of project management education, or hold the CAPM certification.",
+      "After your application is approved, you generally have one year to pass the exam before your eligibility expires.",
+      "The 2026 exam format is 180 questions and 240 minutes, so the pace you train for must match the pace you are approved to take."
+    ],
+    "angle": "The application is where most people's PMP journey actually stalls — not because the experience is missing, but because it is described weakly. PMI evaluates whether you led and managed projects, so your descriptions must prove leadership, not just participation.",
+    "advice": [
+      "Write roles and timeframes first, then a headline of what you led; reviewers read outcomes, not attendance.",
+      "For each project, describe what you initiated, planned, executed, monitored, and closed — leadership verbs over task verbs.",
+      "Connect each entry to the domains: People leadership, Process delivery, and Business Environment results all earn credit.",
+      "Match your hours: count the months in which you led project work, not just the months you were employed.",
+      "Keep descriptions consistent with your resume and references — audit questions usually follow mismatches, not honesty."
+    ],
+    "takeaway": "Your application is a review of leadership evidence. Write it with the exam's own domain lens, and approval stops being something to fear.",
+    "cta": {
+      "title": "Start studying while your application is in review",
+      "body": "Be ready for the day your eligibility opens: take the free diagnostic now and begin strengthening your weakest domain before your one-year window starts ticking.",
+      "href": "/diagnostic",
+      "label": "Diagnose your readiness"
+    }
+  },
+  {
+    "slug": "pmp-exam-day-courtese-checklist",
+    "category": "Exam process",
+    "keywords": [
+      "pmp exam day tips",
+      "pmp exam checklist",
+      "what to bring pmp exam",
+      "pmp test center rules",
+      "pmp exam nerves"
+    ],
+    "related": [
+      "pmp-exam-tips",
+      "pmp-exam-format-2026",
+      "pmp-exam-cost-2026"
+    ],
+    "factHints": ["break", "240", "180", "proctor", "check-in"],
+    "facts": [
+      "The 2026 exam is 180 questions in 240 minutes plus two optional 10-minute breaks that do not count against your time.",
+      "You cannot return to answered questions on the PMP exam — there is no back button.",
+      "Only 170 of the 180 questions are scored; 10 are unscored pretest items.",
+      "PMI does not publish a passing score, so the goal on exam day is coverage and pace, not a number."
+    ],
+    "angle": "Most PMP candidates pass or fail before the exam starts, in the logistics. If you know your route, your check-in requirements, and your break strategy, you walk into the test with your energy — not your anxiety — leading.",
+    "advice": [
+      "Rehearse the route and arrival time the day before; test centers do not wait, and proctored at-home sessions have strict setup windows.",
+      "Bring the two valid forms of ID you registered with and nothing you are not allowed to hold — know the allowed-items list for your setting.",
+      "Use the breaks as a reset: stand, breathe, and stretch. They are free time you already paid for with 240 minutes of hard focus.",
+      "Answer and move on. With no back button and a strict clock, the habit of committing to best-of-four and moving costs nothing and saves minutes.",
+      "Plan a post-exam reaction: the interface does not show a score, and relief or frustration comes after — neither helps during a 240-minute performance."
+    ],
+    "takeaway": "Treat logistics like part of the exam material: rehearse once, and the largest controllable source of exam-day failure disappears.",
+    "cta": {
+      "title": "Rehearse a full-length run before the real day",
+      "body": "The free simulator reproduces the 180-question, 240-minute format with optional breaks timed for you, so 'no back button' and 'no extra minutes' are already trained habits.",
+      "href": "/simulator",
+      "label": "Run the simulator"
+    }
+  },
+  {
+    "slug": "pmp-contract-types-procurement",
+    "category": "Domain deep dive",
+    "keywords": [
+      "pmp procurement management",
+      "pmp contract types",
+      "fixed price vs cost plus pmp",
+      "pmp procurement questions",
+      "pmp contract risk"
+    ],
+    "related": [
+      "pmp-process-domain-tasks-list",
+      "pmp-26-tasks-overview",
+      "pmp-exam-format-2026"
+    ],
+    "factHints": ["contract", "procurement", "fixed", "cost", "contingency"],
+    "facts": [
+      "Process task 5 on the 2026 ECO is 'Plan and manage procurement': acquire goods and services and manage the resulting contracts.",
+      "The Process domain weighs 41 percent of the 2026 exam, making procurement a meaningful slice of the largest domain.",
+      "The 2026 exam mixes predictive, agile, and hybrid contexts, and procurement questions appear in all three.",
+      "A full run is 180 questions in 240 minutes, so efficiency matters when procurement scenarios get long-winded."
+    ],
+    "angle": "Contract questions reward one insight more than any formula: who carries the cost risk. If you keep that lens, the contract-type questions on the exam stop being mnemonic battles and become judgment calls.",
+    "advice": [
+      "Remember the risk gradient: fixed-price pushes cost risk to the seller; cost-reimbursable pushes it to the buyer.",
+      "In cost-plus contracts the seller's fee can be tied to performance (incentive fees), which aligns effort with outcomes.",
+      "Time-and-materials is the go-between for uncertain or evolving scope — typical in hybrid work.",
+      "For 'who should decide' procurement questions, the buyer's project team evaluates, the buyer's management approves awards, and legal reviews terms.",
+      "When scope changes under a fixed-price contract, expect a formal change or renegotiation — never assume the seller absorbs it silently."
+    ],
+    "takeaway": "Hold the risk lens, and contract questions reduce to simple economics: whoever bears the risk gets managed accordingly.",
+    "cta": {
+      "title": "Practice procurement judgment with instant explanations",
+      "body": "Every question in the free practice engine comes with a rationale for the right choice and the wrong ones, which is where contract intuition actually forms.",
+      "href": "/practice",
+      "label": "Practice procurement free"
+    }
+  },
+  {
+    "slug": "pmp-earned-value-and-status",
+    "category": "Domain deep dive",
+    "keywords": [
+      "pmp earned value management",
+      "evm pmp",
+      "cpi spi pmp",
+      "pmp cost variance",
+      "project status pmp"
+    ],
+    "related": [
+      "pmp-process-domain-tasks-list",
+      "pmp-26-tasks-overview",
+      "pmp-exam-passing-score-2026"
+    ],
+    "factHints": ["earned value", "schedule", "cost", "variance", "status"],
+    "facts": [
+      "Process task 9 on the 2026 ECO is 'Evaluate project status': measure performance and consolidate progress so decisions use facts.",
+      "Process task 3 is 'Help ensure value-based delivery', which frames what status evaluation is ultimately for.",
+      "Process task 7 is 'Plan and optimize quality of products/deliverables' — separate from, but adjacent to, cost and schedule health.",
+      "The Process domain weighs 41 percent of the 2026 exam."
+    ],
+    "angle": "Earned value on the 2026 exam is tested as judgment, not arithmetic contests. You need to know what CPI and SPI mean and what to do about them — not live as an EVM calculator.",
+    "advice": [
+      "Know the three pillars: planned value is your budgeted plan, earned value is the value of work actually done, actual cost is what you spent.",
+      "CPI below 1 means you are getting less value per dollar than planned; SPI below 1 means progress is behind plan.",
+      "For 'what next' questions, diagnosing which variance is driving the problem comes before announcing a correction.",
+      "Status to the sponsor means facts and forecast, not optimism — the exam repeatedly rewards transparent reporting.",
+      "Learn the difference between performance measurement and quality: a deliverable can be on schedule and still fail quality checks."
+    ],
+    "takeaway": "Understand what the metrics mean and how they combine into honest status reporting, and EVM questions stop feeling like \u2018monday-morning math\u2019.",
+    "cta": {
+      "title": "Build reporting intuition, not formula anxiety",
+      "body": "The diagnostic groups your readiness by domain and task, so you can see whether Process-level status judgment is where your prep needs focus.",
+      "href": "/diagnostic",
+      "label": "Check your Process readiness"
+    }
+  },
+  {
+    "slug": "pmp-conflict-management-styles",
+    "category": "Domain deep dive",
+    "keywords": [
+      "pmp conflict management",
+      "pmp people questions conflict",
+      "conflict resolution pmp",
+      "servant leadership pmp",
+      "team conflict pmp questions"
+    ],
+    "related": [
+      "pmp-people-domain-tasks-list",
+      "pmp-26-tasks-overview",
+      "pmp-exam-tips"
+    ],
+    "factHints": ["conflict", "disagreement", "team", "leader"],
+    "facts": [
+      "People task 2 on the 2026 ECO is 'Manage conflicts': address disagreement openly, find its real source, and protect working relationships.",
+      "People task 3 is 'Lead the project team', which covers empowerment, expectations, and clearing obstacles.",
+      "The People domain weighs 33 percent of the 2026 exam, and conflict scenarios are a favorite format.",
+      "The 2026 ECO lists 26 tasks total, 8 of them in the People domain."
+    ],
+    "angle": "Conflict questions are really leadership questions in disguise. The exam rewards the project leader who addresses the real source of a conflict directly and early — not the one who paper over it or escalates it by default.",
+    "advice": [
+      "Openly acknowledge the disagreement and find its real source before choosing a technique; the exam punishes guess-and-escalate.",
+      "Prefer collaborative negotiation when time allows: the goal is the best outcome for the project and the people in it.",
+      "Know that forcing can be justified when time is critical or when the decision is non-negotiable — but treat it as the exception.",
+      "Never resolve conflict by silence: untracked conflict still drains the team and reappears later, and the exam knows it.",
+      "Serve before directing: as the project leader, remove the blocker, bring facts, and let the team own the workable resolution."
+    ],
+    "takeaway": "Treat conflict as data — about expectations, workloads, or trust — and the exam's conflict questions become tests of judgment rather than traps.",
+    "cta": {
+      "title": "See how your People judgment holds up under scoring",
+      "body": "Drill People-domain questions with immediate explanations and track your domain readiness improving over time — free, forever.",
+      "href": "/practice",
+      "label": "Train People questions free"
+    }
+  },
+  {
+    "slug": "pmp-study-plan-busy-schedule",
+    "category": "Study practice",
+    "keywords": [
+      "pmp study plan for busy professionals",
+      "how long to study for pmp",
+      "pmp study schedule",
+      "pmp study free",
+      "pmp hours per day"
+    ],
+    "related": [
+      "pmp-study-plan-free",
+      "pmp-exam-tips",
+      "pmp-exam-format-2026"
+    ],
+    "factHints": ["study", "plan", "hours", "readiness", "180"],
+    "facts": [
+      "The 2026 exam is 180 questions in 240 minutes — a pace you must train, not discover, on exam day.",
+      "Scoring is weighted People 33 percent, Process 41 percent, Business Environment 26 percent, so your study time should follow the same weights.",
+      "Only 170 of the 180 questions are scored; 10 are unscored pretest items.",
+      "PMI does not publish a passing score, so progress is measured by domain readiness, not by a target percentage."
+    ],
+    "angle": "Busy professionals do not fail the PMP because they lack knowledge; they fail because they trail off. The fix is a schedule built around small, weight-aligned reps that fit a normal job — and it costs nothing.",
+    "advice": [
+      "Start with a 10-minute diagnostic to see your domain split; that single step decides where your hours are spent.",
+      "Schedule five 25-minute daily blocks: quick flashcards, a question drill, explanations, a concept read, and a weekly simulator sit.",
+      "Spend process-weighted study time: 41 percent of your reps should be Process-domain, matching its exam weight.",
+      "Do one full 240-minute simulator run every two weeks, and a second one the week before your exam.",
+      "Keep a running list of explained-mistakes; exam day is won by the small corrections you noticed in practice."
+    ],
+    "takeaway": "Twenty-five minutes a day, aligned to the exam's weights and tracked against a readiness score, beats weekend marathons for every busy professional we know.",
+    "cta": {
+      "title": "Turn ten minutes into a study plan",
+      "body": "The free diagnostic gives you a weighted 2026 ECO readiness estimate in about ten minutes — a perfect first step for a busy schedule.",
+      "href": "/diagnostic",
+      "label": "Start the 10-minute diagnostic"
+    }
+  }
+]

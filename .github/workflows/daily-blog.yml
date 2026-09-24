@@ -1,0 +1,87 @@
+name: daily-blog
+
+on:
+  schedule:
+    - cron: "20 5 * * *"
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - "scripts/daily-blog/**"
+      - ".github/workflows/daily-blog.yml"
+
+concurrency:
+  group: daily-blog
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            scripts/daily-blog/package-lock.json
+
+      - name: Install generator deps
+        working-directory: scripts/daily-blog
+        run: npm ci
+
+      - name: Install app deps (typecheck gate)
+        run: npm ci
+
+      - name: Locate system Chrome for Puppeteer
+        run: echo "CHROME_BIN=$(command -v google-chrome-stable || command -v google-chrome || command -v chromium-browser || command -v chromium || true)" >> "$GITHUB_ENV"
+
+      - name: Generate today's post
+        working-directory: scripts/daily-blog
+        env:
+          DAILY_BLOG_API_KEY: ${{ secrets.DAILY_BLOG_API_KEY }}
+          DAILY_BLOG_MODEL: ${{ secrets.DAILY_BLOG_MODEL }}
+          DAILY_BLOG_BASE_URL: ${{ secrets.DAILY_BLOG_BASE_URL }}
+          CHROME_BIN: ${{ env.CHROME_BIN }}
+        run: node generate.mjs
+
+      - name: Typecheck gate (posts.ts must stay valid)
+        run: |
+          if git diff --quiet HEAD -- src/content/posts.ts; then
+            echo "no post changes this run"
+            exit 0
+          fi
+          npx tsc --noEmit
+
+      - name: Commit and push the post
+        run: |
+          if git diff --quiet HEAD -- src/content/posts.ts; then
+            echo "no post changes to commit"
+            exit 0
+          fi
+          git config user.name "ace-the-pmp daily bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/content/posts.ts
+          git commit -m "chore(blog): automatic daily study guide"
+          git push origin HEAD:master
+
+      - name: Trigger Vercel deploy (when a deploy hook is configured)
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$VERCEL_DEPLOY_HOOK" ]; then
+            echo "no VERCEL_DEPLOY_HOOK secret configured; relying on Vercel git integration"
+            exit 0
+          fi
+          if [ "$(git log -1 --pretty=%s)" = "chore(blog): automatic daily study guide" ]; then
+            curl -fsS -X POST "$VERCEL_DEPLOY_HOOK" || echo "deploy hook POST failed"
+          else
+            echo "no new post this run; skipping deploy hook"
+          fi
