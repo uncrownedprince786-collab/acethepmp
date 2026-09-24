@@ -86,11 +86,14 @@ jobs:
             echo "no new post this run; skipping deploy hook"
           fi
 
-      - name: Deploy via Vercel token (when VERCEL_TOKEN secret is set)
-        if: ${{ secrets.VERCEL_DEPLOY_HOOK == '' && secrets.VERCEL_TOKEN != '' }}
+      - name: Deploy via Vercel token
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "no VERCEL_TOKEN secret configured"
+            exit 0
+          fi
           if [ "$(git log -1 --pretty=%s)" = "chore(blog): automatic daily study guide" ]; then
             npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
           else
@@ -98,6 +101,10 @@ jobs:
           fi
 
       - name: Warn when no deploy trigger is configured
-        if: ${{ secrets.VERCEL_DEPLOY_HOOK == '' && secrets.VERCEL_TOKEN == '' }}
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          echo "::warning title=deploy-trigger-missing::Add a VERCEL_DEPLOY_HOOK or VERCEL_TOKEN repository secret so the nightly post auto-deploys to Vercel."
+          if [ -z "$VERCEL_DEPLOY_HOOK" ] && [ -z "$VERCEL_TOKEN" ]; then
+            echo "::warning title=deploy-trigger-missing::Add a VERCEL_DEPLOY_HOOK or VERCEL_TOKEN repository secret so the nightly post auto-deploys to Vercel."
+          fi
