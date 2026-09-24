@@ -72,12 +72,12 @@ jobs:
           git commit -m "chore(blog): automatic daily study guide"
           git push origin HEAD:master
 
-      - name: Trigger Vercel deploy (when a deploy hook is configured)
+      - name: Deploy via hook (when VERCEL_DEPLOY_HOOK secret is set)
         env:
           VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
           if [ -z "$VERCEL_DEPLOY_HOOK" ]; then
-            echo "no VERCEL_DEPLOY_HOOK secret configured; relying on Vercel git integration"
+            echo "no VERCEL_DEPLOY_HOOK secret configured"
             exit 0
           fi
           if [ "$(git log -1 --pretty=%s)" = "chore(blog): automatic daily study guide" ]; then
@@ -85,3 +85,19 @@ jobs:
           else
             echo "no new post this run; skipping deploy hook"
           fi
+
+      - name: Deploy via Vercel token (when VERCEL_TOKEN secret is set)
+        if: ${{ secrets.VERCEL_DEPLOY_HOOK == '' && secrets.VERCEL_TOKEN != '' }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ "$(git log -1 --pretty=%s)" = "chore(blog): automatic daily study guide" ]; then
+            npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
+          else
+            echo "no new post this run; skipping deploy"
+          fi
+
+      - name: Warn when no deploy trigger is configured
+        if: ${{ secrets.VERCEL_DEPLOY_HOOK == '' && secrets.VERCEL_TOKEN == '' }}
+        run: |
+          echo "::warning title=deploy-trigger-missing::Add a VERCEL_DEPLOY_HOOK or VERCEL_TOKEN repository secret so the nightly post auto-deploys to Vercel."
