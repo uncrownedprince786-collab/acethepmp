@@ -14,6 +14,7 @@ const columns = [
   {
     title: "Learn",
     links: [
+      { href: "/blog", label: "PMP blog & guides" },
       { href: "/curriculum", label: "2026 ECO roadmap" },
       { href: "/about", label: "About & our promise" },
       { href: "/dashboard", label: "Readiness score" },

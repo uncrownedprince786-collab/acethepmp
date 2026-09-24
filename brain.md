@@ -60,6 +60,7 @@ dashboard) passes on production — see §5–§6.
 | `/practice` | Adaptive practice — weakest ECO domain first, difficulty bands, no answer-key leak |
 | `/simulator` | 180 Q / 240 min, ECO-proportional (33/41/26) exam selection, palette + flagging, breaks after Q60/Q120 |
 | `/flashcards` | SM-2 spaced repetition from practice misses; "again/hard/good/easy" ratings |
+| `/blog`, `/blog/[slug]` | 13 original long-tail study guides (2026 format facts, 26 ECO tasks by domain, cost/requirements, strategy); BlogPosting JSON-LD, internal links into tools |
 | `/dashboard` | Readiness gauge, per-domain bars, streak, attempt history (login required, noindex) |
 | `/curriculum` | 2026 ECO tasks: People 33% / Process 41% / Business Environment 26% (+ Course JSON-LD) |
 | `/about`, `/login`, `/register` | Disclosure, auth flows (password fields have show/hide eye toggle via `src/components/auth/password-input.tsx`) |
@@ -75,8 +76,9 @@ automatically via `GET /api/session`.
 
 ## 5. Verification to-date
 
-- `npm run build` ✅ (Next 15.5.25, zero type errors, all 16 routes compile —
-  14 pages + `/icon` + `/apple-icon`; sitemap + robots generated).
+- `npm run build` ✅ (Next 15.5.25, zero type errors; 32 static/SSG routes — 14
+  base pages + `/icon` + `/apple-icon` + `/blog` + 13 posts; sitemap = 21 URLs,
+  robots generated).
 - `npm run lint` ✅ (eslint-config-next: no errors; warnings cleaned).
 - **Full E2E user-flow suite ✅ 74/74 — run locally (dev server, Neon DB).**
   Script drives a real browser-like cookie jar through: guest session boot →
@@ -103,6 +105,10 @@ automatically via `GET /api/session`.
     creates dueAt≤now); `/api/flashcards/review` updates SM-2 interval/dueAt.
 - Practice payload intentionally omits `correctKey` (verified no answer-key
   leak).
+- **Blog smoke test ✅ (local `next start`):** `/blog` + all 13 posts return
+  200 with `BlogPosting` JSON-LD; inline **bold** / *italic* / `[link](/path)`
+  formatting renders (incl. escaped quotes), CTAs and related-post links point
+  into the tools, sitemap lists 21 URLs.
 
 ## 6. Deployment (Vercel + Neon)
 
@@ -176,3 +182,8 @@ automatically via `GET /api/session`.
 7. **Analytics:** privacy-friendly analytics (Plausible/Umami) once live.
 8. **Legal:** privacy policy + terms pages (footer currently points to /about
    disclosure only).
+9. **SEO content & discovery (in progress):** 13 blog guides shipped Sep 2026 as
+   the first long-tail content layer (`src/content/posts.ts` is the data store;
+   no CMS/deps). Next: request-index the `/blog` URLs in GSC, register Bing
+   Webmaster Tools + IndexNow, add privacy-friendly analytics
+   (Plausible/Umami), and keep publishing toward long-tail volume.

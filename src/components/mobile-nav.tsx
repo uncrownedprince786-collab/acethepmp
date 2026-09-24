@@ -10,6 +10,7 @@ const links = [
   { href: "/practice", label: "Practice" },
   { href: "/simulator", label: "Simulator" },
   { href: "/flashcards", label: "Flashcards" },
+  { href: "/blog", label: "Blog" },
   { href: "/curriculum", label: "2026 ECO" },
   { href: "/dashboard", label: "Progress" },
 ];
