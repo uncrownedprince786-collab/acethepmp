@@ -60,7 +60,7 @@ dashboard) passes on production — see §5–§6.
 | `/practice` | Adaptive practice — weakest ECO domain first, difficulty bands, no answer-key leak |
 | `/simulator` | 180 Q / 240 min, ECO-proportional (33/41/26) exam selection, palette + flagging, breaks after Q60/Q120 |
 | `/flashcards` | SM-2 spaced repetition from practice misses; "again/hard/good/easy" ratings |
-| `/blog`, `/blog/[slug]` | 13 original long-tail study guides (2026 format facts, 26 ECO tasks by domain, cost/requirements, strategy); BlogPosting JSON-LD, internal links into tools |
+| `/blog`, `/blog/[slug]` | 14+ original long-tail guides (2026 format facts, 26 ECO tasks by domain, cost/requirements, strategy); BlogPosting JSON-LD, internal links into tools. **Plus 1 more auto-generated daily** by `scripts/daily-blog` (see §8) |
 | `/dashboard` | Readiness gauge, per-domain bars, streak, attempt history (login required, noindex) |
 | `/curriculum` | 2026 ECO tasks: People 33% / Process 41% / Business Environment 26% (+ Course JSON-LD) |
 | `/about`, `/login`, `/register` | Disclosure, auth flows (password fields have show/hide eye toggle via `src/components/auth/password-input.tsx`) |
@@ -76,8 +76,8 @@ automatically via `GET /api/session`.
 
 ## 5. Verification to-date
 
-- `npm run build` ✅ (Next 15.5.25, zero type errors; 32 static/SSG routes — 14
-  base pages + `/icon` + `/apple-icon` + `/blog` + 13 posts; sitemap = 21 URLs,
+- `npm run build` ✅ (Next 15.5.25, zero type errors; 33 static/SSG routes — 14
+  base pages + `/icon` + `/apple-icon` + `/blog` + 14 posts; sitemap = 22 URLs,
   robots generated).
 - `npm run lint` ✅ (eslint-config-next: no errors; warnings cleaned).
 - **Full E2E user-flow suite ✅ 74/74 — run locally (dev server, Neon DB).**
@@ -105,10 +105,49 @@ automatically via `GET /api/session`.
     creates dueAt≤now); `/api/flashcards/review` updates SM-2 interval/dueAt.
 - Practice payload intentionally omits `correctKey` (verified no answer-key
   leak).
-- **Blog smoke test ✅ (local `next start`):** `/blog` + all 13 posts return
-  200 with `BlogPosting` JSON-LD; inline **bold** / *italic* / `[link](/path)`
-  formatting renders (incl. escaped quotes), CTAs and related-post links point
-  into the tools, sitemap lists 21 URLs.
+- **Blog smoke test ✅ (local `next start` + live):** `/blog` + every post
+  return 200 with `BlogPosting` JSON-LD; inline **bold** / *italic* /
+  `[link](/path)` formatting renders (incl. escaped quotes), CTAs and
+  related-post links point into the tools. **Daily-blog smoke test ✅:** one
+  auto-generated post (`pmp-risk-management-2026`) built, type-checked,
+  smoke-tested locally on `:3103`, and verified **live** after deploy (200,
+  BlogPosting JSON-LD, PMI source links, 4 internal tool links).
+
+## 8. Daily blog automation (`scripts/daily-blog` + GitHub Actions)
+
+- **What it does:** every day at `05:20 UTC` (and on manual `workflow_dispatch`
+  or push touching `scripts/daily-blog/**`) the `daily-blog` workflow:
+  1. runs `scripts/daily-blog/generate.mjs` (Node 20, `puppeteer-core` against
+     the runner's system Chrome `CHROME_BIN`; falls back to plain `fetch` when
+     no Chrome),
+  2. Puppeteer renders the 3 PMI pages in `sources.json`. PMI is bot-gated, so
+     live facts usually come back empty — the pipeline **degrades gracefully to
+     curated, human-verified facts** in `seed-topics.json` (10 topics seeded;
+     more can be appended) so every post is always authentic and never
+     fabricated,
+  3. writes the post (Fallback = zero-key source-synthesis, OR — if the
+     optional `DAILY_BLOG_API_KEY` + `DAILY_BLOG_MODEL`/`DAILY_BLOG_BASE_URL`
+     GitHub secrets are set — an OpenAI-compatible LLM, free models by
+     default; falls back automatically if the LLM output fails validation),
+  4. validates: required blocks/callouts (PDMC-style disclaimer + Sources),
+     ≥2 internal tool links, title/excerpt/keyword budget, duplicate-slug guard,
+     near-verbatim overlap guard vs. scraped text,
+  5. appends to `src/content/posts.ts` (published = today; same-day guard means
+     re-runs are no-ops), gates with `npx tsc --noEmit`, commits
+     `chore(blog): automatic daily study guide`, pushes `master`,
+  6. deploys via `VERCEL_DEPLOY_HOOK` or `VERCEL_TOKEN` GitHub secret when
+     configured (else warns).
+- **Run locally:** `cd scripts/daily-blog && npm ci && node generate.mjs
+  (--dry-run | --force | --topic N)`. Needs a local Chrome.
+- **Optional express helper:** `&& npx vercel deploy --prod --yes` if you keep
+  the flow manual.
+- **⚠ Deploy model:** the `acethepmp` Vercel project has **no Git link**
+  (`link.gitRepo` empty), so pushes do **not** auto-deploy. For the daily post
+  to reach production automatically, add **one** repository secret
+  (`Settings → Secrets → Actions`): either `VERCEL_DEPLOY_HOOK` (created in
+  Vercel `Dashboard → Project → Settings → Git → Deploy Hooks`, ref `master`)
+  or `VERCEL_TOKEN` (vercel.com/account/tokens). Until then, deploy manually
+  with `npx vercel deploy --prod --yes` after each post.
 
 ## 6. Deployment (Vercel + Neon)
 
@@ -182,8 +221,10 @@ automatically via `GET /api/session`.
 7. **Analytics:** privacy-friendly analytics (Plausible/Umami) once live.
 8. **Legal:** privacy policy + terms pages (footer currently points to /about
    disclosure only).
-9. **SEO content & discovery (in progress):** 13 blog guides shipped Sep 2026 as
-   the first long-tail content layer (`src/content/posts.ts` is the data store;
-   no CMS/deps). Next: request-index the `/blog` URLs in GSC, register Bing
-   Webmaster Tools + IndexNow, add privacy-friendly analytics
-   (Plausible/Umami), and keep publishing toward long-tail volume.
+9. **SEO content & discovery (in progress):** 13 blog guides shipped Sep 2026
+   as the first long-tail content layer (`src/content/posts.ts` is the data
+   store; no CMS/deps) **plus the §8 daily-blog automation that adds one
+   original, fact-sourced guide per day**. Next: request-index the `/blog`
+   URLs in GSC, register Bing Webmaster Tools + IndexNow, add the §8 deploy
+   secret so daily posts auto-ship, add privacy-friendly analytics
+   (Plausible/Umami), and keep appending topics to `seed-topics.json`.
