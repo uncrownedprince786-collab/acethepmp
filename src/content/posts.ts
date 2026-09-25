@@ -1041,4 +1041,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-schedule-management-techniques",
+    title: "PMP Schedule Management (2026)",
+    category: "Domain deep dive",
+    excerpt: "The schedule questions on the 2026 exam rarely ask you to compute a full critical path. They ask whether you know what the tools mean, what they are for, and what to do.",
+    keywords: ["pmp schedule management","critical path method pmp","schedule baseline pmp","process domain pmp","pmp schedule questions"],
+    published: "2026-09-25",
+    readMinutes: 3,
+    intro: "The schedule questions on the 2026 exam rarely ask you to compute a full critical path. They ask whether you know what the tools mean, what they are for, and what to do when reality deviates from the plan. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "Train schedule judgment under real time pressure",
+      body: "The simulator runs the full 180-question, 240-minute 2026 format with the Process domain weighted at 41 percent — the same pressure you will feel on exam day.",
+      href: "/simulator",
+      label: "Start a simulator run",
+    },
+    related: ["pmp-process-domain-tasks-list","pmp-26-tasks-overview","pmp-exam-format-2026"],
+    blocks: [
+      {
+        t: "p",
+        text: "The schedule questions on the 2026 exam rarely ask you to compute a full critical path. They ask whether you know what the tools mean, what they are for, and what to do when reality deviates from the plan. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["The 2026 PMP exam weighs the Process domain at 41 percent of your score — the largest of the three.","Process task 8 on the 2026 ECO is 'Plan and manage schedule': sequence the work, estimate durations, and track progress against the plan.","Schedule performance is evaluated as part of Process task 9, 'Evaluate project status'.","The exam itself is 180 questions in 240 minutes, which disciplines how much time you have to deploy these techniques on test day."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Understand the critical path as the longest chain of dependent activities — the one that sets the finish date — not as the busiest list of tasks.","Know that float (slack) is the room a non-critical activity has before it delays the project, and that critical-path activities have zero float.","Learn the difference between crashing (add resources, usually more cost) and fast tracking (do activities in parallel, usually more risk).","For 'what changes when schedule slips' questions, the usual first move is to re-analyze the critical path before promising a new date.","Watch for predictive-versus-agile tension: in a predictive project you protect the baseline; in an adaptive one you re-plan every iteration."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** Master the concepts and the decision logic behind schedule tools, and the Process-domain schedule questions become judgment calls instead of calculation anxiety.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];
