@@ -90,19 +90,23 @@ async function main() {
       info("this auto-post was already deployed locally — nothing to do");
       return;
     }
-    const commitTs = Math.floor(new Date(git(["log", "-1", "--format=%cI", "origin/master"])).getTime());
+    git(["merge", "--ff-only", "origin/master", "--quiet"]);
+    const commitTs = Math.floor(new Date(git(["log", "-1", "--format=%cI", "HEAD"])).getTime());
     if (await alreadyDeployedAfter(commitTs)) {
       writeFileSync(STATE_FILE, sha, "utf8");
       info(`auto-post ${sha.slice(0, 8)} already deployed by GitHub Actions — marking done`);
       return;
     }
     info(`new auto-post detected (${sha.slice(0, 8)}) — deploying to Vercel`);
-    const out = execFileSync(
-      process.platform === "win32" ? "npx.cmd" : "npx",
-      ["vercel", "deploy", "--prod", "--yes"],
-      { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
-    );
-    if (!/Aliased[^\n]*acethepmp\.vercel\.app/.test(out)) {
+    const out = execFileSync("npx", ["vercel", "deploy", "--prod", "--yes"], {
+      cwd: ROOT,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+      shell: process.platform === "win32",
+    });
+    const aliased = /Aliased[^\n]*acethepmp\.vercel\.app/.test(out);
+    const confirmed = aliased || (await alreadyDeployedAfter(commitTs));
+    if (!confirmed) {
       info("deploy finished but production alias was not confirmed");
       info(out.split("\n").slice(-6).join("\n"));
       process.exitCode = 1;
