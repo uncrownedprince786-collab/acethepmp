@@ -1112,4 +1112,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-stakeholder-engagement-plan",
+    title: "PMP Stakeholder Management (2026)",
+    category: "Domain deep dive",
+    excerpt: "Stakeholder questions are the most 'people-first' questions on the exam: the test rewards servant behavior, early communication, and honesty — never silence, spin, or.",
+    keywords: ["pmp stakeholder management","stakeholder engagement plan","pmp people questions","people domain pmp","stakeholder analysis pmp"],
+    published: "2026-09-26",
+    readMinutes: 3,
+    intro: "Stakeholder questions are the most 'people-first' questions on the exam: the test rewards servant behavior, early communication, and honesty — never silence, spin, or escalation-by-default. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "Find out which People skills are your weak spot",
+      body: "The free diagnostic breaks your readiness into the three ECO domains, so you can see if stakeholder judgment is dragging your People score down before you invest study time.",
+      href: "/diagnostic",
+      label: "Take the free diagnostic",
+    },
+    related: ["pmp-people-domain-tasks-list","pmp-26-tasks-overview","pmp-exam-tips"],
+    blocks: [
+      {
+        t: "p",
+        text: "Stakeholder questions are the most 'people-first' questions on the exam: the test rewards servant behavior, early communication, and honesty — never silence, spin, or escalation-by-default. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["The 2026 PMP exam weighs the People domain at 33 percent of your score.","People tasks 4 and 5 on the 2026 ECO are about engaging stakeholders and aligning their expectations.","People task 6 is 'Manage stakeholder expectations', and task 8 is 'Plan and manage communication'.","The 2026 ECO defines 26 tasks total, with 8 in the People domain alone."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Identify stakeholders before you engage them; the exam will test that sequencing again and again.","Classify by power, influence, and attitude — and remember the point is to choose the right engagement level, not to label people.","When expectations conflict, the preferred move is to surface it and work toward alignment with the group, not to quietly pick the sponsor's side.","Communication questions reward matching the message to the audience's need and to the communication plan — not over-communicating to everyone.","Build trust by reporting honestly, including bad news, because the exam treats transparency as a leadership asset."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** Answer as a servant leader who communicates early and honestly, and the People-domain questions stop feeling like traps and start feeling predictable.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];
