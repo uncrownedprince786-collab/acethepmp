@@ -60,6 +60,7 @@ function normalizePost(post, topic, today) {
   if (!out.intro || out.intro.length < 80) out.intro = topic.angle;
   const bodyText = out.blocks.map((b) => (b.t === "list" ? b.items.join(" ") : b.text)).join(" ");
   if (!out.excerpt || out.excerpt.length < 120) out.excerpt = excerptFor(out.blocks);
+  if (out.excerpt.length > 170) out.excerpt = `${out.excerpt.slice(0, 167)}...`;
   out.readMinutes = readMinutesFor(bodyText);
   return out;
 }
@@ -75,64 +76,72 @@ async function main() {
     log(`a post is already published for ${today} — nothing to do (exit 0)`);
     return;
   }
-  const candidateIndex =
-    opts.topicIndex != null ? opts.topicIndex : topics.findIndex((t) => !existing.has(t.slug));
-  if (candidateIndex < 0 || candidateIndex >= topics.length) {
+  const unused = topics.map((t, i) => ({ t, i })).filter(({ t }) => !existing.has(t.slug));
+  const enforced = opts.topicIndex != null ? [{ t: topics[opts.topicIndex], i: opts.topicIndex }].filter((x) => x.t) : unused;
+  if (enforced.length === 0) {
     log("no unused topic left — add more to seed-topics.json");
     if (opts.dryRun) return;
     process.exitCode = 1;
     return;
   }
-  const topic = topics[candidateIndex];
-  log(`topic #${candidateIndex} → ${topic.slug}`);
-
-  let results = [];
-  if (!opts.skipIngest) {
-    results = await ingest(topic);
-  }
-  const sourceTexts = results.map((r) => r.text || "");
-
-  let post = null;
-  let used = null;
-  post = await writeWithLLM({ topic, results });
-  if (post) {
-    post = normalizePost(post, topic, today);
-    const v = validatePost(post, { existingSlugs: existing, sourceTexts });
-    if (v.ok) {
-      used = "llm";
-    } else {
-      log(`llm post failed validation (${v.errors.join("; ")}) — falling back`);
-      post = null;
+  let committed = null;
+  for (const { t: topic, i: idx } of enforced) {
+    log(`topic #${idx} → ${topic.slug}`);
+    let results = [];
+    if (!opts.skipIngest) {
+      results = await ingest(topic);
     }
-  }
-  if (!post) {
-    post = writeFallback({ topic, results });
-    post = normalizePost(post, topic, today);
-    const v = validatePost(post, { existingSlugs: existing, sourceTexts });
-    if (!v.ok) {
-      for (const e of v.errors) log(`validate ✗ ${e}`);
+    const sourceTexts = results.map((r) => r.text || "");
+
+    let post = null;
+    let used = null;
+    post = await writeWithLLM({ topic, results });
+    if (post) {
+      post = normalizePost(post, topic, today);
+      const v = validatePost(post, { existingSlugs: existing, sourceTexts });
+      if (v.ok) {
+        used = "llm";
+      } else {
+        log(`llm post failed validation (${v.errors.join("; ")}) — falling back`);
+        post = null;
+      }
+    }
+    if (!post) {
+      post = writeFallback({ topic, results });
+      post = normalizePost(post, topic, today);
+      const v = validatePost(post, { existingSlugs: existing, sourceTexts });
+      if (!v.ok) {
+        for (const e of v.errors) log(`validate ✗ ${e}`);
+        log(`topic ${topic.slug} unusable — trying next`);
+        continue;
+      }
+      used = "fallback";
+    }
+
+    log(`mode: ${used} · words ${countWords(post)} · ${post.blocks.length} blocks`);
+    if (opts.dryRun) {
+      log("dry-run — post written to stdout, not committed:");
+      console.log(postToTs(post).replace(/^ {2}/gm, "    "));
+      log(`slug: ${post.slug} (exists=${existing.has(post.slug)})`);
+      return;
+    }
+    if (existing.has(post.slug)) {
+      log(`slug already used (${post.slug}) — abort without writing`);
       process.exitCode = 1;
       return;
     }
-    used = "fallback";
+    const next = appendPost(ts, postToTs(post));
+    writePostsTs(next);
+    log(`appended ${post.slug} to src/content/posts.ts`);
+    committed = post.slug;
+    break;
   }
-
-  log(`mode: ${used} · words ${countWords(post)} · ${post.blocks.length} blocks`);
-  if (opts.dryRun) {
-    log("dry-run — post written to stdout, not committed:");
-    console.log(postToTs(post).replace(/^ {2}/gm, "    "));
-    log(`slug: ${post.slug} (exists=${existing.has(post.slug)})`);
-    return;
-  }
-  if (existing.has(post.slug)) {
-    log(`slug already used (${post.slug}) — abort without writing`);
+  if (!committed) {
+    log("no usable topic produced a valid post today");
     process.exitCode = 1;
-    return;
+  } else {
+    log("remember: gates before commit — tsc --noEmit, then build");
   }
-  const next = appendPost(ts, postToTs(post));
-  writePostsTs(next);
-  log(`appended ${post.slug} to src/content/posts.ts`);
-  log("remember: gates before commit — tsc --noEmit, then build");
 }
 
 function countWords(post) {
