@@ -90,7 +90,8 @@ jobs:
             exit 0
           fi
           if [ "$(git log -1 --pretty=%s)" = "chore(blog): automatic daily study guide" ]; then
-            npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
+            npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN" \
+              || echo "::warning title=vercel-deploy-skipped::Vercel CLI deploy failed (token may be stale). The local 4-hourly task will deploy this post instead."
           else
             echo "no new post this run; skipping deploy"
           fi
