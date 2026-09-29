@@ -65,7 +65,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add src/content/posts.ts
           git commit -m "chore(blog): automatic daily study guide"
-          git push origin HEAD:master
+          git push origin HEAD:master || { git pull --rebase origin master && git push origin HEAD:master; }
 
       - name: Deploy via hook (when VERCEL_DEPLOY_HOOK secret is set)
         env:
