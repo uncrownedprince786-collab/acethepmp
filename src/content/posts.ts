@@ -1183,4 +1183,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-agile-versus-predictive-scenarios",
+    title: "Agile Vs Predictive PMP Questions (2026)",
+    category: "Exam format",
+    excerpt: "Half the battle on the 2026 exam is recognizing which delivery environment a question is set in, because the 'right' answer depends on it. An agile answer in a predict...",
+    keywords: ["agile vs predictive pmp questions","pmp agile scenarios","hybrid delivery pmp","pmp scenario questions","pmp delivery approaches"],
+    published: "2026-09-29",
+    readMinutes: 3,
+    intro: "Half the battle on the 2026 exam is recognizing which delivery environment a question is set in, because the 'right' answer depends on it. An agile answer in a predictive project is wrong — and the exam builds traps around exactly that mistake. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "Practice scenarios in all three environments",
+      body: "The adaptive practice engine labels every question by domain and delivery environment, so you can sharpen your environment-recognition skill deliberately.",
+      href: "/practice",
+      label: "Drill scenarios free",
+    },
+    related: ["pmp-exam-format-2026","how-many-questions-on-the-pmp-exam","pmp-exam-tips"],
+    blocks: [
+      {
+        t: "p",
+        text: "Half the battle on the 2026 exam is recognizing which delivery environment a question is set in, because the 'right' answer depends on it. An agile answer in a predictive project is wrong — and the exam builds traps around exactly that mistake. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["The 2026 exam tests questions in predictive (waterfall), agile or adaptive, and hybrid contexts.","A full PMP exam run is 180 questions across 240 minutes, with two optional 10-minute breaks that do not count against your time.","Only 170 of the 180 questions are scored; the remaining 10 are unscored pretest items.","The 2026 ECO puts delivering value-based results and choosing the right delivery approach at the center of planning work."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Read the first line of every scenario for delivery-environment markers: iterations, sprints, and product backlog point to agile; phases and baselines point to predictive.","In agile projects, the product owner owns priority, the team owns commitment, and the Scrum Master serves the process.","In predictive projects, the baseline is protected through formal change control before anyone promises a new date or cost.","Hybrid questions usually test how you blend the two: keep what needs structure structured and what needs flexibility flexible.","When stuck, ask what a servant leader in that environment would do next — the answer is usually the least dramatic, most communicative option."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** Train yourself to name the environment before you name the answer, and scenario questions switch from guessing games to pattern recognition.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];
