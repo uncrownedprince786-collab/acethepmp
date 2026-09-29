@@ -19,6 +19,16 @@ export default function FlashcardsPage() {
           Every question you answer becomes a card, spaced so you revisit it right
           before you would forget it.
         </p>
+        <p className="mt-3 text-muted-foreground">
+          Passing the PMP needs recall as much as reasoning — domain weights, task
+          counts, definitions, and formulas are all fair game on exam day. These
+          flashcards are generated from the questions you miss in practice and the
+          simulation, then scheduled with spaced repetition so each card returns
+          right before you would forget it. That means the deck always targets your
+          specific weak spots, never a generic stack. Use it for five focused minutes
+          a day alongside the diagnostic and adaptive practice, and the whole platform
+          closes into one free study loop that feeds itself.
+        </p>
       </div>
       <FlashcardDeck />
     </div>

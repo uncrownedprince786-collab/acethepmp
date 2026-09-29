@@ -210,9 +210,9 @@ export function SimulatorRun() {
           <p className="text-xs font-bold uppercase tracking-wide text-[var(--brand-teal)]">
             2026 exam-authentic simulator
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight">
+          <h2 className="mt-2 text-3xl font-bold tracking-tight">
             Full-length PMP exam simulation
-          </h1>
+          </h2>
           <p className="mt-3 text-muted-foreground">
             Same format as the real test: questions across People, Process, and
             Business Environment, a timed session with breaks, and flag-and-review.

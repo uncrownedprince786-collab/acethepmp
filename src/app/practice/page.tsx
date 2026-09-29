@@ -19,6 +19,17 @@ export default function PracticePage() {
           The engine studies your answers and focuses on your weakest domain at the
           right difficulty, keeping you in the zone where learning happens fastest.
         </p>
+        <p className="mt-3 text-muted-foreground">
+          The 2026 PMP exam is built from PMI&apos;s Examination Content Outline —
+          People (33%), Process (41%), and Business Environment (26%) — and every
+          question here is tagged to a domain and task from that outline. Answer a
+          few questions and the engine re-targets your weakest domain, so each
+          session closes a real gap instead of repeating what you already know.
+          When you miss one, the explanation walks through the reasoning, and repeat
+          sessions rotate across the full 40+ original question bank. Use it before
+          the simulator: building understanding first makes those 180 questions far
+          less intimidating.
+        </p>
       </div>
       <PracticeRun />
     </div>

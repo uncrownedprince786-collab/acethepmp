@@ -19,6 +19,16 @@ export default function SimulatorPage() {
           Real format, real timing, real pressure — with instant, reviewed explanations
           when it is over.
         </p>
+        <p className="mt-3 text-muted-foreground">
+          The real PMP lets you set the pace across 180 questions in 240 minutes with
+          optional breaks, and this simulator replicates that exact format using the
+          same original, ECO-tagged questions used across the site. Sit the full
+          session with the timer on and you will learn stamina, pacing, and
+          flag-and-review discipline that no single-topic quiz can teach. When it is
+          over, everything is scored against the 2026 content outline, your flagged
+          questions are surfaced, and every miss flows into the same practice record
+          and flashcards — so each mock builds the study data for the real attempt.
+        </p>
       </div>
       <SimulatorRun />
     </div>
