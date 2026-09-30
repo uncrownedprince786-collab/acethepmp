@@ -1254,4 +1254,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-application-descriptions-approval",
+    title: "PMP Application Approval (2026)",
+    category: "Exam process",
+    excerpt: "The application is where most people's PMP journey actually stalls — not because the experience is missing, but because it is described weakly. PMI evaluates whether you.",
+    keywords: ["pmp application approval","how to write pmp application","pmp experience examples","pmp eligibility requirements","pmp application tips"],
+    published: "2026-09-30",
+    readMinutes: 3,
+    intro: "The application is where most people's PMP journey actually stalls — not because the experience is missing, but because it is described weakly. PMI evaluates whether you led and managed projects, so your descriptions must prove leadership, not just participation. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "Start studying while your application is in review",
+      body: "Be ready for the day your eligibility opens: take the free diagnostic now and begin strengthening your weakest domain before your one-year window starts ticking.",
+      href: "/diagnostic",
+      label: "Diagnose your readiness",
+    },
+    related: ["pmp-exam-requirements-application","pmp-exam-cost-2026","pmp-exam-passing-score-2026"],
+    blocks: [
+      {
+        t: "p",
+        text: "The application is where most people's PMP journey actually stalls — not because the experience is missing, but because it is described weakly. PMI evaluates whether you led and managed projects, so your descriptions must prove leadership, not just participation. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["Candidates with a four-year degree need 36 months of leading projects; candidates with a high school diploma or associate degree need 60 months.","All candidates must also complete 35 contact hours of project management education, or hold the CAPM certification.","After your application is approved, you generally have one year to pass the exam before your eligibility expires.","The 2026 exam format is 180 questions and 240 minutes, so the pace you train for must match the pace you are approved to take."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Write roles and timeframes first, then a headline of what you led; reviewers read outcomes, not attendance.","For each project, describe what you initiated, planned, executed, monitored, and closed — leadership verbs over task verbs.","Connect each entry to the domains: People leadership, Process delivery, and Business Environment results all earn credit.","Match your hours: count the months in which you led project work, not just the months you were employed.","Keep descriptions consistent with your resume and references — audit questions usually follow mismatches, not honesty."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** Your application is a review of leadership evidence. Write it with the exam's own domain lens, and approval stops being something to fear.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];
