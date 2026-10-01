@@ -1325,4 +1325,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-exam-day-courtese-checklist",
+    title: "PMP Exam Day Tips (2026)",
+    category: "Exam process",
+    excerpt: "Most PMP candidates pass or fail before the exam starts, in the logistics. If you know your route, your check-in requirements, and your break strategy, you walk into the.",
+    keywords: ["pmp exam day tips","pmp exam checklist","what to bring pmp exam","pmp test center rules","pmp exam nerves"],
+    published: "2026-10-01",
+    readMinutes: 3,
+    intro: "Most PMP candidates pass or fail before the exam starts, in the logistics. If you know your route, your check-in requirements, and your break strategy, you walk into the test with your energy — not your anxiety — leading. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "Rehearse a full-length run before the real day",
+      body: "The free simulator reproduces the 180-question, 240-minute format with optional breaks timed for you, so 'no back button' and 'no extra minutes' are already trained habits.",
+      href: "/simulator",
+      label: "Run the simulator",
+    },
+    related: ["pmp-exam-tips","pmp-exam-format-2026","pmp-exam-cost-2026"],
+    blocks: [
+      {
+        t: "p",
+        text: "Most PMP candidates pass or fail before the exam starts, in the logistics. If you know your route, your check-in requirements, and your break strategy, you walk into the test with your energy — not your anxiety — leading. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["The 2026 exam is 180 questions in 240 minutes plus two optional 10-minute breaks that do not count against your time.","You cannot return to answered questions on the PMP exam — there is no back button.","Only 170 of the 180 questions are scored; 10 are unscored pretest items.","PMI does not publish a passing score, so the goal on exam day is coverage and pace, not a number."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Rehearse the route and arrival time the day before; test centers do not wait, and proctored at-home sessions have strict setup windows.","Bring the two valid forms of ID you registered with and nothing you are not allowed to hold — know the allowed-items list for your setting.","Use the breaks as a reset: stand, breathe, and stretch. They are free time you already paid for with 240 minutes of hard focus.","Answer and move on. With no back button and a strict clock, the habit of committing to best-of-four and moving costs nothing and saves minutes.","Plan a post-exam reaction: the interface does not show a score, and relief or frustration comes after — neither helps during a 240-minute performance."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** Treat logistics like part of the exam material: rehearse once, and the largest controllable source of exam-day failure disappears.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];
