@@ -1396,4 +1396,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-contract-types-procurement",
+    title: "PMP Procurement Management (2026)",
+    category: "Domain deep dive",
+    excerpt: "Contract questions reward one insight more than any formula: who carries the cost risk. If you keep that lens, the contract-type questions on the exam stop being mnemo...",
+    keywords: ["pmp procurement management","pmp contract types","fixed price vs cost plus pmp","pmp procurement questions","pmp contract risk"],
+    published: "2026-10-02",
+    readMinutes: 3,
+    intro: "Contract questions reward one insight more than any formula: who carries the cost risk. If you keep that lens, the contract-type questions on the exam stop being mnemonic battles and become judgment calls. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "Practice procurement judgment with instant explanations",
+      body: "Every question in the free practice engine comes with a rationale for the right choice and the wrong ones, which is where contract intuition actually forms.",
+      href: "/practice",
+      label: "Practice procurement free",
+    },
+    related: ["pmp-process-domain-tasks-list","pmp-26-tasks-overview","pmp-exam-format-2026"],
+    blocks: [
+      {
+        t: "p",
+        text: "Contract questions reward one insight more than any formula: who carries the cost risk. If you keep that lens, the contract-type questions on the exam stop being mnemonic battles and become judgment calls. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["Process task 5 on the 2026 ECO is 'Plan and manage procurement': acquire goods and services and manage the resulting contracts.","The Process domain weighs 41 percent of the 2026 exam, making procurement a meaningful slice of the largest domain.","The 2026 exam mixes predictive, agile, and hybrid contexts, and procurement questions appear in all three.","A full run is 180 questions in 240 minutes, so efficiency matters when procurement scenarios get long-winded."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Remember the risk gradient: fixed-price pushes cost risk to the seller; cost-reimbursable pushes it to the buyer.","In cost-plus contracts the seller's fee can be tied to performance (incentive fees), which aligns effort with outcomes.","Time-and-materials is the go-between for uncertain or evolving scope — typical in hybrid work.","For 'who should decide' procurement questions, the buyer's project team evaluates, the buyer's management approves awards, and legal reviews terms.","When scope changes under a fixed-price contract, expect a formal change or renegotiation — never assume the seller absorbs it silently."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** Hold the risk lens, and contract questions reduce to simple economics: whoever bears the risk gets managed accordingly.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];
