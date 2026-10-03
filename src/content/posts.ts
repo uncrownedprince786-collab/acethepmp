@@ -1467,4 +1467,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-earned-value-and-status",
+    title: "PMP Earned Value Management (2026)",
+    category: "Domain deep dive",
+    excerpt: "Earned value on the 2026 exam is tested as judgment, not arithmetic contests. You need to know what CPI and SPI mean and what to do about them — not live as an EVM.",
+    keywords: ["pmp earned value management","evm pmp","cpi spi pmp","pmp cost variance","project status pmp"],
+    published: "2026-10-03",
+    readMinutes: 3,
+    intro: "Earned value on the 2026 exam is tested as judgment, not arithmetic contests. You need to know what CPI and SPI mean and what to do about them — not live as an EVM calculator. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "Build reporting intuition, not formula anxiety",
+      body: "The diagnostic groups your readiness by domain and task, so you can see whether Process-level status judgment is where your prep needs focus.",
+      href: "/diagnostic",
+      label: "Check your Process readiness",
+    },
+    related: ["pmp-process-domain-tasks-list","pmp-26-tasks-overview","pmp-exam-passing-score-2026"],
+    blocks: [
+      {
+        t: "p",
+        text: "Earned value on the 2026 exam is tested as judgment, not arithmetic contests. You need to know what CPI and SPI mean and what to do about them — not live as an EVM calculator. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["Process task 9 on the 2026 ECO is 'Evaluate project status': measure performance and consolidate progress so decisions use facts.","Process task 3 is 'Help ensure value-based delivery', which frames what status evaluation is ultimately for.","Process task 7 is 'Plan and optimize quality of products/deliverables' — separate from, but adjacent to, cost and schedule health.","The Process domain weighs 41 percent of the 2026 exam."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Know the three pillars: planned value is your budgeted plan, earned value is the value of work actually done, actual cost is what you spent.","CPI below 1 means you are getting less value per dollar than planned; SPI below 1 means progress is behind plan.","For 'what next' questions, diagnosing which variance is driving the problem comes before announcing a correction.","Status to the sponsor means facts and forecast, not optimism — the exam repeatedly rewards transparent reporting.","Learn the difference between performance measurement and quality: a deliverable can be on schedule and still fail quality checks."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** Understand what the metrics mean and how they combine into honest status reporting, and EVM questions stop feeling like ‘monday-morning math’.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI — PMP Certification](https://www.pmi.org/certifications/project-management-pmp) · [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];
