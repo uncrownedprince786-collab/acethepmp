@@ -1538,4 +1538,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-conflict-management-styles",
+    title: "PMP Conflict Management (2026)",
+    category: "Domain deep dive",
+    excerpt: "Conflict questions are really leadership questions in disguise. The exam rewards the project leader who addresses the real source of a conflict directly and early — not.",
+    keywords: ["pmp conflict management","pmp people questions conflict","conflict resolution pmp","servant leadership pmp","team conflict pmp questions"],
+    published: "2026-10-04",
+    readMinutes: 3,
+    intro: "Conflict questions are really leadership questions in disguise. The exam rewards the project leader who addresses the real source of a conflict directly and early — not the one who paper over it or escalates it by default. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "See how your People judgment holds up under scoring",
+      body: "Drill People-domain questions with immediate explanations and track your domain readiness improving over time — free, forever.",
+      href: "/practice",
+      label: "Train People questions free",
+    },
+    related: ["pmp-people-domain-tasks-list","pmp-26-tasks-overview","pmp-exam-tips"],
+    blocks: [
+      {
+        t: "p",
+        text: "Conflict questions are really leadership questions in disguise. The exam rewards the project leader who addresses the real source of a conflict directly and early — not the one who paper over it or escalates it by default. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["People task 2 on the 2026 ECO is 'Manage conflicts': address disagreement openly, find its real source, and protect working relationships.","People task 3 is 'Lead the project team', which covers empowerment, expectations, and clearing obstacles.","The People domain weighs 33 percent of the 2026 exam, and conflict scenarios are a favorite format.","The 2026 ECO lists 26 tasks total, 8 of them in the People domain."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Openly acknowledge the disagreement and find its real source before choosing a technique; the exam punishes guess-and-escalate.","Prefer collaborative negotiation when time allows: the goal is the best outcome for the project and the people in it.","Know that forcing can be justified when time is critical or when the decision is non-negotiable — but treat it as the exception.","Never resolve conflict by silence: untracked conflict still drains the team and reappears later, and the exam knows it.","Serve before directing: as the project leader, remove the blocker, bring facts, and let the team own the workable resolution."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** Treat conflict as data — about expectations, workloads, or trust — and the exam's conflict questions become tests of judgment rather than traps.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI — PMP Certification](https://www.pmi.org/certifications/project-management-pmp) · [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];
