@@ -1609,4 +1609,75 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "pmp-study-plan-busy-schedule",
+    title: "PMP Study Plan For Busy Professionals (2026)",
+    category: "Study practice",
+    excerpt: "Busy professionals do not fail the PMP because they lack knowledge; they fail because they trail off. The fix is a schedule built around small, weight-aligned reps that.",
+    keywords: ["pmp study plan for busy professionals","how long to study for pmp","pmp study schedule","pmp study free","pmp hours per day"],
+    published: "2026-10-05",
+    readMinutes: 3,
+    intro: "Busy professionals do not fail the PMP because they lack knowledge; they fail because they trail off. The fix is a schedule built around small, weight-aligned reps that fit a normal job — and it costs nothing. This guide pulls the official facts together and turns them into a practical plan you can act on today.",
+    cta: {
+      title: "Turn ten minutes into a study plan",
+      body: "The free diagnostic gives you a weighted 2026 ECO readiness estimate in about ten minutes — a perfect first step for a busy schedule.",
+      href: "/diagnostic",
+      label: "Start the 10-minute diagnostic",
+    },
+    related: ["pmp-study-plan-free","pmp-exam-tips","pmp-exam-format-2026"],
+    blocks: [
+      {
+        t: "p",
+        text: "Busy professionals do not fail the PMP because they lack knowledge; they fail because they trail off. The fix is a schedule built around small, weight-aligned reps that fit a normal job — and it costs nothing. That makes it one of the most practice-able slices of the 2026 exam: the scenarios follow recognizable patterns once you know what the question is really asking.",
+      },
+      {
+        t: "h2",
+        text: "The official facts behind this topic",
+      },
+      {
+        t: "list",
+        items: ["The 2026 exam is 180 questions in 240 minutes — a pace you must train, not discover, on exam day.","Scoring is weighted People 33 percent, Process 41 percent, Business Environment 26 percent, so your study time should follow the same weights.","Only 170 of the 180 questions are scored; 10 are unscored pretest items.","PMI does not publish a passing score, so progress is measured by domain readiness, not by a target percentage."],
+      },
+      {
+        t: "h2",
+        text: "Why this matters on the 2026 exam",
+      },
+      {
+        t: "p",
+        text: "The exam is built entirely from the Examination Content Outline, so a topic like this appears as a scenario, never as a definition recall. Read the first line of every question for the delivery environment — predictive, agile, or hybrid — because the correct move depends on it.",
+      },
+      {
+        t: "h2",
+        text: "How to prepare: judgment beats memorization",
+      },
+      {
+        t: "list",
+        items: ["Start with a 10-minute diagnostic to see your domain split; that single step decides where your hours are spent.","Schedule five 25-minute daily blocks: quick flashcards, a question drill, explanations, a concept read, and a weekly simulator sit.","Spend process-weighted study time: 41 percent of your reps should be Process-domain, matching its exam weight.","Do one full 240-minute simulator run every two weeks, and a second one the week before your exam.","Keep a running list of explained-mistakes; exam day is won by the small corrections you noticed in practice."],
+      },
+      {
+        t: "p",
+        text: "**One sentence to keep.** Twenty-five minutes a day, aligned to the exam's weights and tracked against a readiness score, beats weekend marathons for every busy professional we know.",
+      },
+      {
+        t: "p",
+        text: "Across all three domains, the exam rewards the same habits: treat scenarios as judgment calls, gather facts before you act, and choose the least dramatic constructive move. Study this topic the way you will be scored on it — through explained practice questions — and the patterns become recognizable.",
+      },
+      {
+        t: "h2",
+        text: "Practice it free, today",
+      },
+      {
+        t: "list",
+        items: ["Take the [free 10-question diagnostic](/diagnostic) first to see your 2026 ECO domain split before anything else.","Drill with [adaptive practice questions](/practice) that target your weakest domain and explain every answer.","Run a full-length [exam simulator](/simulator) session to train the 180-question, 240-minute pace — two runs minimum.","Browse the [curriculum](/curriculum) to confirm coverage of all 26 tasks across the three domains."],
+      },
+      {
+        t: "callout",
+        text: "**Honest note.** This guide is original, not affiliated with PMI or the PMP exam, and does not promise results. PMI does not publish a passing score, and every readiness number you see — including ours — is an estimate from practice material.",
+      },
+      {
+        t: "callout",
+        text: "**Sources.** [PMI Examination Content Outline](https://www.pmi.org/certifications/project-management-pmp). Facts above come from official PMI material; the advice is ours, original and practical.",
+      },
+    ],
+  },
 ];
